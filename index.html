@@ -72,6 +72,9 @@
   <div id="portada" aria-hidden="true"><img src="icons/gazapo-portada.svg" width="120" height="120" alt=""><p>Gazapo</p></div>
   <div class="pagina">
     <header class="cabecera">
+      <button type="button" id="btn-estadisticas" class="boton-estadisticas" aria-label="Estadísticas" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-7M22 20H2"/></svg>
+      </button>
       <img class="cabecera__logo" src="icons/gazapo.svg" alt="" width="44" height="44">
       <div class="cabecera__titulos">
         <h1 class="titulo">Gazapo</h1>
@@ -177,6 +180,14 @@
         <li><span class="palabra palabra--fallo">fallo</span> tachada: fallo.</li>
       </ul>
       <p class="modal__manana">Mañana, un texto nuevo.</p>
+    </div>
+  </dialog>
+
+  <dialog class="modal modal--estadisticas" id="estadisticas" aria-labelledby="estadisticas-titulo">
+    <div class="modal__hoja">
+      <button type="button" class="modal__cerrar" id="btn-cerrar-estadisticas" aria-label="Cerrar">×</button>
+      <h2 class="modal__titulo" id="estadisticas-titulo">Estadísticas</h2>
+      <div class="estadisticas" id="estadisticas-cifras"></div>
     </div>
   </dialog>
 

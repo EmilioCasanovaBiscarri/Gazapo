@@ -1327,6 +1327,73 @@
     if (!leer(CLAVE_INSTRUCCIONES)) abrir();
   }
 
+  /* ---------- Estadísticas ---------- */
+
+  // Se calculan con las partidas terminadas que guarda el navegador, una por día
+  // (gazapo:partida:AAAA-MM-DD). La racha cuenta los días seguidos jugados, se acierte o no.
+  function estadisticas() {
+    var dias = [];
+    var cazadosTotal = 0;
+    try {
+      for (var i = 0; i < window.localStorage.length; i++) {
+        var clave = window.localStorage.key(i);
+        if (clave.indexOf(PREFIJO_PARTIDA) !== 0) continue;
+        var partida = JSON.parse(leer(clave) || 'null');
+        if (!partida || !partida.terminada || !Array.isArray(partida.intentos)) continue;
+        var f = partesFecha(clave.slice(PREFIJO_PARTIDA.length));
+        dias.push(Date.UTC(f.anio, f.mes, f.dia) / 864e5);
+        cazadosTotal += partida.intentos.filter(function (x) { return x.tipo === 'gazapo'; }).length;
+      }
+    } catch (e) { /* sin almacenamiento */ }
+    dias.sort(function (a, b) { return a - b; });
+    var mejor = 0;
+    var seguidos = 0;
+    dias.forEach(function (d, n) {
+      seguidos = n && d === dias[n - 1] + 1 ? seguidos + 1 : 1;
+      mejor = Math.max(mejor, seguidos);
+    });
+    var h = partesFecha(hoyLocal());
+    var hoy = Date.UTC(h.anio, h.mes, h.dia) / 864e5;
+    var ultimo = dias[dias.length - 1];
+    var racha = ultimo === hoy || ultimo === hoy - 1 ? seguidos : 0;
+    return {
+      dias: dias.length,
+      aciertos: dias.length ? Math.round((cazadosTotal / (dias.length * TOTAL_GAZAPOS)) * 100) : 0,
+      racha: racha,
+      mejor: mejor
+    };
+  }
+
+  function prepararEstadisticas() {
+    var dialogo = $('estadisticas');
+    var abrirBoton = $('btn-estadisticas');
+
+    function cerrar() {
+      if (dialogo.close) dialogo.close();
+      else dialogo.removeAttribute('open');
+    }
+
+    abrirBoton.addEventListener('click', function () {
+      var e = estadisticas();
+      var cifras = $('estadisticas-cifras');
+      cifras.textContent = '';
+      [[e.dias, 'días'], [e.aciertos + '%', 'aciertos'], [e.racha, 'racha'], [e.mejor, 'mejor racha']].forEach(function (c) {
+        var div = document.createElement('div');
+        div.appendChild(p(String(c[0]), 'estadisticas__cifra'));
+        div.appendChild(p(c[1], 'estadisticas__nombre'));
+        cifras.appendChild(div);
+      });
+      if (dialogo.showModal) dialogo.showModal();
+      else dialogo.setAttribute('open', '');
+    });
+    $('btn-cerrar-estadisticas').addEventListener('click', cerrar);
+    dialogo.addEventListener('close', function () { abrirBoton.focus(); });
+    // Cierre al tocar fuera de la hoja.
+    dialogo.addEventListener('click', function (e) {
+      if (e.target === dialogo) cerrar();
+    });
+  }
+
   /* ---------- Arranque ---------- */
 
   // La portada con el logo se ve al menos un instante (lo que tardan las orejas en moverse)
@@ -1380,6 +1447,7 @@
     if (terminada()) pintarFinal();
     retirarPortada(function () {
       prepararInstrucciones();
+      prepararEstadisticas();
       if (terminada()) abrirFinal();
     });
   }

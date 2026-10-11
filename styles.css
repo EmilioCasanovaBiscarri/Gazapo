@@ -158,6 +158,52 @@ button {
   border-color: var(--tinta);
 }
 
+/* Estadísticas: icono de barras sin borde, como en los demás juegos del Almanaque. */
+.boton-estadisticas {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.75rem;
+  margin-left: -0.4rem;
+  margin-right: -0.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+.boton-estadisticas svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.estadisticas__cifra {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: 2rem;
+  font-variant-numeric: lining-nums;
+  line-height: 1.1;
+}
+
+.estadisticas__nombre {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
 /* --- Fecha y marcador ---------------------------------------------------- */
 
 .fecha-reto {

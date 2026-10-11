@@ -11,6 +11,10 @@ Cada día, un texto breve de época con tres palabras que entonces nadie podía 
 - `volver-almanaque.js`: copia de `Almanaque/para-los-juegos/`.
 - `manifest.json`, `sw.js`: PWA para jugar sin conexión. Si cambias la lista de archivos, sube `VERSION` en `sw.js`.
 
+## Estadísticas
+
+El icono de barras de la cabecera abre las estadísticas: días jugados, porcentaje de gazapos cazados, racha y mejor racha. No se guardan aparte: se calculan con las partidas terminadas que el navegador conserva, una por día (`gazapo:partida:AAAA-MM-DD`). La racha cuenta los días seguidos jugados, se acierte o no.
+
 ## Probar en local
 
 ```sh
