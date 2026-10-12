@@ -24,3 +24,7 @@ python3 -m http.server 8000
 Abre <http://localhost:8000/>. Para jugar otro día: <http://localhost:8000/?dia=2026-10-09>.
 
 La partida se guarda en `localStorage` con claves `gazapo:…`; la página `/reiniciar/` de Almanaque las borra.
+
+## Derechos de autor
+
+© 2026 Emilio Casanova Biscarri. Todos los derechos reservados. El código, los textos y los diseños de este repositorio no pueden copiarse ni reutilizarse sin permiso.
