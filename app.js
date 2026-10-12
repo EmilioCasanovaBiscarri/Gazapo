@@ -692,11 +692,12 @@
       resumen = (b > MAX_BORRONES ? 'Tres borrones y medio' : 'Tres borrones') + '. Has cazado ' + c + ' de ' + TOTAL_GAZAPOS +
         ' gazapos; los que faltaban quedan señalados en la carta.';
     }
-    $('final-titulo').textContent = titulo;
     $('final-pagina-titulo').textContent = titulo;
+    $('final-titulo').innerHTML = c + ' <small>de ' + TOTAL_GAZAPOS + '</small>';
     $('final-resumen').textContent = resumen;
     $('compartir-texto').textContent = textoCompartir();
     pintarSoluciones();
+    pintarCifras($('final-estadisticas'));
     $('final').hidden = false;
 
     if (abrir === 'ya') abrirFinal();
@@ -708,39 +709,70 @@
     if (window.almanaqueHecho) window.almanaqueHecho({ aciertos: c, total: TOTAL_GAZAPOS });
   }
 
-  // Los tres gazapos, en orden de lectura, y las trampas en las que se cayó.
+  // Los tres gazapos, en orden de lectura, una línea desplegable cada uno (y su marca en la
+  // ficha); debajo de los botones, las trampas en las que se cayó.
   function pintarSoluciones() {
-    var lista = $('soluciones');
-    lista.textContent = '';
     var gazapos = Object.keys(reto.gazapos).sort(function (a, b) { return (posDe(a) || 0) - (posDe(b) || 0); });
     var trampas = estado.intentos.filter(function (i) { return i.tipo === 'trampa' && reto.trampas[i.clave]; })
       .map(function (i) { return i.clave; });
 
-    gazapos.concat(trampas).forEach(function (clave) {
-      var esGazapo = !!reto.gazapos[clave];
-      var dato = esGazapo ? reto.gazapos[clave] : reto.trampas[clave];
-      var cazado = esGazapo && !!intentoDe(clave);
+    var marcas = $('final-marcas');
+    marcas.textContent = '';
+    gazapos.forEach(function (clave) {
+      var marca = document.createElement('span');
+      marca.className = 'marca-gazapo' + (intentoDe(clave) ? ' marca-gazapo--cazado' : '');
+      marcas.appendChild(marca);
+    });
+    marcas.setAttribute('aria-label', cazados() + (cazados() === 1 ? ' gazapo cazado' : ' gazapos cazados') + ' de ' + TOTAL_GAZAPOS);
+
+    var lista = $('soluciones');
+    lista.textContent = '';
+    gazapos.forEach(function (clave) {
+      var dato = reto.gazapos[clave];
+      var cazado = !!intentoDe(clave);
       var li = document.createElement('li');
       li.id = 'solucion-' + clave;
-      li.className = 'solucion solucion--' + (esGazapo ? (cazado ? 'cazado' : 'escapado') : 'trampa');
+      li.className = 'solucion solucion--' + (cazado ? 'cazado' : 'escapado');
+      var desplegable = document.createElement('details');
+      var cabeza = document.createElement('summary');
+      cabeza.className = 'solucion__cabeza';
+      var marca = document.createElement('span');
+      marca.className = 'solucion__marca';
+      marca.textContent = cazado ? '✓' : '✗';
+      marca.setAttribute('aria-label', cazado ? 'Cazado' : 'Se te escapó');
+      var muestra = document.createElement('span');
+      muestra.className = 'solucion__palabra';
+      muestra.textContent = textoPorClave[clave] || dato.termino;
+      var linea = document.createElement('span');
+      linea.className = 'solucion__detalle';
+      linea.textContent = typeof dato.desde === 'number' ? textoAnio(dato) + ' (' + textoDistancia(dato) + ')' : '';
+      cabeza.append(marca, muestra, linea);
+      desplegable.appendChild(cabeza);
+      desplegable.appendChild(p(dato.explicacion, 'solucion__explicacion'));
+      if (dato.epoca) desplegable.appendChild(p(dato.epoca, 'solucion__epoca'));
+      li.appendChild(desplegable);
+      lista.appendChild(li);
+    });
 
+    lista = $('trampas');
+    lista.textContent = '';
+    $('trampas-titulo').hidden = !trampas.length;
+    trampas.forEach(function (clave) {
+      var dato = reto.trampas[clave];
+      var li = document.createElement('li');
+      li.id = 'solucion-' + clave;
+      li.className = 'solucion solucion--trampa';
       var cabeza = document.createElement('div');
       cabeza.className = 'solucion__cabeza';
       var muestra = document.createElement('span');
-      muestra.className = 'palabra palabra--quieta ' + (esGazapo ? (cazado ? 'palabra--gazapo' : 'palabra--revelada') : 'palabra--trampa');
+      muestra.className = 'palabra palabra--quieta palabra--trampa';
       muestra.textContent = textoPorClave[clave] || dato.termino;
-      cabeza.appendChild(muestra);
-      var detalle = esGazapo ? (cazado ? 'cazado' : 'se te escapó') : 'trampa';
-      if (typeof dato.desde === 'number') {
-        detalle += ' · ' + (esGazapo ? '' : 'ya en ') + textoAnio(dato) + (esGazapo ? ' (' + textoDistancia(dato) + ')' : '');
-      }
       var linea = document.createElement('span');
       linea.className = 'solucion__detalle';
-      linea.textContent = detalle;
-      cabeza.appendChild(linea);
+      linea.textContent = 'trampa' + (typeof dato.desde === 'number' ? ' · ya en ' + textoAnio(dato) : '');
+      cabeza.append(muestra, linea);
       li.appendChild(cabeza);
       li.appendChild(p(dato.explicacion, 'solucion__explicacion'));
-      if (esGazapo && dato.epoca) li.appendChild(p(dato.epoca, 'solucion__epoca'));
       lista.appendChild(li);
     });
   }
@@ -767,7 +799,6 @@
     var dialogo = $('final-dialogo');
     $('btn-ver-final').addEventListener('click', abrirFinal);
     $('btn-cerrar-final').addEventListener('click', cerrarFinal);
-    $('btn-ver-carta').addEventListener('click', cerrarFinal);
     // El navegador devuelve el foco a donde estaba al abrir; después, se lleva al botón de volver a abrirla.
     dialogo.addEventListener('close', function () {
       setTimeout(function () { $('btn-ver-final').focus({ preventScroll: true }); }, 0);
@@ -783,6 +814,7 @@
     var aviso = $('aviso-copia');
     function seleccionar() {
       try {
+        $('compartir-texto').hidden = false;
         var rango = document.createRange();
         rango.selectNodeContents($('compartir-texto'));
         var sel = window.getSelection();
@@ -1214,6 +1246,8 @@
         s.classList.remove('solucion--resaltada');
       });
       solucion.classList.add('solucion--resaltada');
+      var desplegable = solucion.querySelector('details');
+      if (desplegable) desplegable.open = true;
       var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       solucion.scrollIntoView({ block: 'nearest', behavior: reducido ? 'auto' : 'smooth' });
     });
@@ -1359,6 +1393,18 @@
     };
   }
 
+  // Días, aciertos, racha y mejor racha: en la carta corregida y en la ventana de estadísticas.
+  function pintarCifras(cifras) {
+    var e = estadisticas();
+    cifras.textContent = '';
+    [[e.dias, 'días'], [e.aciertos + '%', 'aciertos'], [e.racha, 'racha'], [e.mejor, 'mejor racha']].forEach(function (c) {
+      var div = document.createElement('div');
+      div.appendChild(p(String(c[0]), 'estadisticas__cifra'));
+      div.appendChild(p(c[1], 'estadisticas__nombre'));
+      cifras.appendChild(div);
+    });
+  }
+
   function prepararEstadisticas() {
     var dialogo = $('estadisticas');
     var abrirBoton = $('btn-estadisticas');
@@ -1369,15 +1415,7 @@
     }
 
     abrirBoton.addEventListener('click', function () {
-      var e = estadisticas();
-      var cifras = $('estadisticas-cifras');
-      cifras.textContent = '';
-      [[e.dias, 'días'], [e.aciertos + '%', 'aciertos'], [e.racha, 'racha'], [e.mejor, 'mejor racha']].forEach(function (c) {
-        var div = document.createElement('div');
-        div.appendChild(p(String(c[0]), 'estadisticas__cifra'));
-        div.appendChild(p(c[1], 'estadisticas__nombre'));
-        cifras.appendChild(div);
-      });
+      pintarCifras($('estadisticas-cifras'));
       if (dialogo.showModal) dialogo.showModal();
       else dialogo.setAttribute('open', '');
     });

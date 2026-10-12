@@ -953,87 +953,166 @@ button.palabra[aria-disabled="true"] {
   max-height: calc(100dvh - 1.5rem);
 }
 
+/* Carta corregida. Igual en todos los juegos del Almanaque: ficha con el resultado, una
+   línea por gazapo, estadísticas y botones, que se ven sin desplazarse. */
 .modal--final .modal__hoja {
-  padding-bottom: 1rem;
+  padding: 3rem 1.1rem 1rem;
 }
 
-.modal--final .final__titulo {
-  margin-bottom: 0.4rem;
+.ficha-final {
+  padding: 10px 16px 12px;
+  border: 1px solid var(--regla-suave);
+  outline: 1px solid var(--regla-suave);
+  outline-offset: -5px;
+  border-radius: 2px;
+  background: var(--papel);
+  text-align: center;
 }
 
-.modal--final .final__resumen {
-  margin: 0 0 0.25rem;
+.marcas { display: flex; justify-content: center; gap: 10px; margin: 2px 0 0 !important; }
+.marca-gazapo {
+  width: 26px;
+  height: 18px;
+  border: 1.5px solid var(--regla);
+  border-radius: 50%;
 }
+.marca-gazapo--cazado { background: var(--acento); border-color: var(--acento); }
 
-.modal--final .final__compartir {
-  display: block;
-  margin: 0.25rem 0 0.9rem;
+.final__cifra {
+  margin: 2px 0 0;
+  font-family: var(--fuente-titulo);
+  font-weight: 400;
+  font-size: 2.4rem;
+  font-variant-numeric: lining-nums;
+  line-height: 1.05;
+}
+.final__cifra small { font-size: 0.55em; color: var(--tinta-suave); }
+.final__cifra:focus { outline: none; }
+
+.modal .final__frase {
+  margin: 2px 0 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--tinta-suave);
 }
 
 .modal--final .final__botones {
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin-top: 12px;
 }
+.modal--final .final__botones .boton { min-height: 48px; }
 
-/* Las soluciones: cada gazapo con su marca, su año y su explicación. */
+.modal--final .final__compartir {
+  display: block;
+  margin: 0.5rem 0 0;
+}
+.modal--final .final__compartir[hidden] { display: none; }
+
+.modal--final .final__aviso { min-height: 0; margin: 0.4rem 0 0; text-align: center; }
+.modal--final .modal__manana { margin-top: 0.4rem !important; text-align: center; }
+
+.estadisticas-final {
+  margin: 12px 0 0;
+  padding: 6px 0;
+  border-top: 3px double var(--regla-suave);
+  border-bottom: 3px double var(--regla-suave);
+}
+.estadisticas-final .estadisticas__cifra { font-size: 1.35rem; }
+.estadisticas-final .estadisticas__nombre { white-space: nowrap; }
+
+/* Los gazapos: una línea desplegable cada uno, con su año y su explicación. */
 .soluciones {
-  margin: 0.15rem 0 1rem;
+  margin: 8px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .solucion {
-  padding: 0.45rem 0 0.55rem;
-  border-top: 1px solid var(--regla-suave);
+  border-bottom: 1px solid var(--regla-suave);
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.solucion:first-child {
-  border-top: 0;
+.solucion summary {
+  display: grid;
+  grid-template-columns: 24px auto 1fr 14px;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 42px;
+  padding: 7px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.solucion summary::-webkit-details-marker { display: none; }
+.solucion summary::after {
+  content: '›';
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--tinta-suave);
+  transition: transform 0.2s;
+}
+.solucion details[open] summary::after { transform: rotate(90deg); }
+
+.solucion__marca { font-weight: 600; text-align: center; color: var(--acento); }
+.solucion--escapado .solucion__marca { color: var(--tinta-suave); }
+.solucion__palabra { font-family: var(--fuente-titulo); font-size: 1.3rem; }
+
+.solucion__detalle {
+  text-align: right;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
 }
 
-.solucion__cabeza {
+.modal .solucion__explicacion {
+  margin: 0 0 0.4rem 32px;
+}
+
+.modal .solucion__epoca {
+  margin: 0 0 0.6rem 32px;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+/* Las trampas en las que se cayó, bajo la línea del tiempo. */
+.soluciones--trampas .solucion { padding: 0.45rem 0 0.55rem; }
+.soluciones--trampas .solucion__cabeza {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0 0.4rem;
 }
-
-/* La palabra con la marca de la carta (como en la leyenda de las instrucciones). Va más
-   grande, y la elipse se cerraría sobre las astas de la primera y la última letra: el
-   círculo sobresale más, y la palabra con círculo reserva ese hueco. */
-.solucion .palabra {
-  --circulo-sobresale: 0.4em;
+.soluciones--trampas .palabra {
   display: inline-block;
   margin: 0 0.3em;
   font-size: 1.2rem;
   line-height: 1.8;
   cursor: default;
 }
-
-.solucion .palabra--gazapo,
-.solucion .palabra--revelada {
-  margin-inline: 0.45em;
-}
-
-.solucion__detalle {
-  font-size: 0.95rem;
-  color: var(--tinta-suave);
-}
-
-.modal .solucion__explicacion {
-  margin: 0 0 0.2rem;
-}
-
-.modal .solucion__epoca {
-  margin: 0;
-  font-style: italic;
-  color: var(--tinta-suave);
-}
+.soluciones--trampas .solucion__detalle { text-align: left; }
+.modal .soluciones--trampas .solucion__explicacion { margin-left: 0; }
 
 /* Al tocar su punto en la línea del tiempo. */
 .solucion--resaltada {
   background: var(--acento-tenue);
   box-shadow: 0 0 0 0.4rem var(--acento-tenue);
+}
+
+/* En pantallas bajas (iPhone SE, Android pequeños) las estadísticas bajan bajo los botones,
+   para que Compartir, Siguiente juego y Regresar se vean sin desplazarse. */
+@media (max-height: 660px) {
+  .modal--final .modal__hoja { display: flex; flex-direction: column; padding-top: 2.75rem; }
+  .modal--final .modal__hoja > .estadisticas-final,
+  .modal--final .modal__hoja > .final__compartir,
+  .modal--final .modal__hoja > .final__aviso,
+  .modal--final .modal__hoja > .modal__manana,
+  .modal--final .modal__hoja > h3,
+  .modal--final .modal__hoja > .linea,
+  .modal--final .modal__hoja > .soluciones--trampas { order: 1; }
+  .modal--final .soluciones + .final__botones { margin-top: 12px; }
+  .ficha-final { padding: 8px 16px 10px; }
+  .solucion summary { min-height: 40px; padding: 6px 0; }
 }
 
 /* --- Instrucciones ------------------------------------------------------- */

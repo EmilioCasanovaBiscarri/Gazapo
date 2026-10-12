@@ -138,24 +138,31 @@
   </span>
 
   <!-- Carta corregida: se abre sola al terminar la partida, con las soluciones. -->
-  <dialog class="modal modal--final" id="final-dialogo" aria-labelledby="final-titulo">
+  <!-- Carta corregida. Igual en todos los juegos del Almanaque: ficha con el resultado, una
+       línea por gazapo, estadísticas y botones, que se ven sin desplazarse; debajo, la línea
+       del tiempo y las trampas. -->
+  <dialog class="modal modal--final" id="final-dialogo" aria-label="Resultado de hoy">
     <div class="modal__hoja">
       <button type="button" class="modal__cerrar" id="btn-cerrar-final" aria-label="Cerrar y volver a la carta">×</button>
-      <h2 class="modal__titulo final__titulo" id="final-titulo" tabindex="-1"></h2>
-      <p class="final__resumen" id="final-resumen"></p>
+      <div class="ficha-final">
+        <p class="marcas" id="final-marcas" role="img"></p>
+        <h2 class="final__cifra" id="final-titulo" tabindex="-1"></h2>
+        <p class="final__frase" id="final-resumen"></p>
+      </div>
+      <ul class="soluciones" id="soluciones" aria-label="Toca un gazapo para leer su nota"></ul>
+      <div class="estadisticas estadisticas-final" id="final-estadisticas"></div>
+      <div class="final__botones">
+        <button type="button" class="boton boton--principal" id="btn-compartir">Compartir</button>
+        <a data-almanaque-volver hidden class="boton boton--secundario" href="https://joseleking.github.io/Almanaque/">☜ Regresar al Almanaque</a>
+      </div>
+      <pre class="final__compartir" id="compartir-texto" hidden></pre>
+      <p class="final__aviso" id="aviso-copia" aria-live="polite"></p>
+      <p class="modal__manana">Mañana, un texto nuevo.</p>
       <!-- Línea del tiempo: cuánto se pasaba cada gazapo. app.js dibuja el SVG. -->
       <h3>Cuánto se pasaba cada gazapo</h3>
       <div class="linea" id="linea-tiempo"></div>
-      <h3>Las soluciones</h3>
-      <ul class="soluciones" id="soluciones"></ul>
-      <pre class="final__compartir" id="compartir-texto"></pre>
-      <div class="final__botones">
-        <button type="button" class="boton boton--principal" id="btn-compartir">Compartir</button>
-        <button type="button" class="boton boton--secundario" id="btn-ver-carta">Ver la carta</button>
-        <a data-almanaque-volver hidden class="boton boton--secundario" href="https://joseleking.github.io/Almanaque/">☜ Regresar al Almanaque</a>
-      </div>
-      <p class="final__aviso" id="aviso-copia" aria-live="polite"></p>
-      <p class="modal__manana">Mañana, un texto nuevo.</p>
+      <h3 id="trampas-titulo" hidden>Las trampas</h3>
+      <ul class="soluciones soluciones--trampas" id="trampas"></ul>
     </div>
   </dialog>
 
