@@ -17,7 +17,7 @@
   var COSTE_LUPA = 0.5;
   var MAX_LUPAS = 3;
   var PALABRA = /[\p{L}\p{M}]+/gu;
-  var URL_JUEGO = 'https://joseleking.github.io/Gazapo/';
+  var URL_JUEGO = 'https://emiliocasanovabiscarri.github.io/Gazapo/';
 
   var $ = function (id) { return document.getElementById(id); };
 

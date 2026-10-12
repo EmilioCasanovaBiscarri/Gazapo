@@ -1,6 +1,6 @@
 # Gazapo
 
-*Cazadores de anacronismos.* Un juego diario de la colección [Almanaque](https://joseleking.github.io/Almanaque/).
+*Cazadores de anacronismos.* Un juego diario de la colección [Almanaque](https://emiliocasanovabiscarri.github.io/Almanaque/).
 
 Cada día, un texto breve de época con tres palabras que entonces nadie podía haber escrito. Toca una palabra para seleccionarla y pulsa «Marcar gazapo» para confirmarla. Cada error es un borrón; con tres borrones se acaba la partida.
 
