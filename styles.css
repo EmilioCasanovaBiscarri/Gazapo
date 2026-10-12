@@ -15,7 +15,6 @@
   --acento: #a8321e;
   --acento-tenue: rgba(168, 50, 30, 0.1);
   --lupa-fondo: rgba(168, 50, 30, 0.05);
-  --lupa-frase: #eed7c6; /* opaco: el acento sobre el fondo del párrafo señalado */
 
   --fuente-titulo: "IM Fell DW Pica", "IM Fell English", Georgia, "Times New Roman", serif;
   --fuente-versalitas: "IM Fell DW Pica SC", "IM Fell DW Pica", Georgia, serif;
@@ -40,7 +39,6 @@
   --acento: #e0715a;
   --acento-tenue: rgba(224, 113, 90, 0.14);
   --lupa-fondo: rgba(224, 113, 90, 0.07);
-  --lupa-frase: #4c3127;
   color-scheme: dark;
 }
 
@@ -428,18 +426,44 @@ button {
   outline: none;
 }
 
-/* Segunda lupa: la frase del gazapo, con un fondo algo más marcado (también entre trozos;
-   opaco, para que no salgan costuras donde se solapan). */
-.trozo--lupa {
-  background: var(--lupa-frase);
-  box-shadow: 0 0 0 0.14em var(--lupa-frase);
+/* Cuántos gazapos quedan en el párrafo examinado: una etiqueta en su esquina. */
+.cuenta-lupa {
+  position: absolute;
+  top: -0.85rem;
+  right: -0.3rem;
+  padding: 0 0.45rem;
+  border-radius: 0.6rem;
+  background: var(--acento);
+  color: var(--hoja);
+  font-family: var(--fuente-texto); /* cifras modernas: con IM Fell el 1 parece una I */
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25rem;
+  letter-spacing: 0.04em;
+  text-indent: 0;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
-/* Tercera lupa: la palabra, subrayada con puntos rojos. */
-.palabra--lupa {
-  text-decoration: underline dotted var(--acento);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.22em;
+.cuenta-lupa--cero {
+  background: var(--regla-suave);
+  color: var(--tinta-suave);
+}
+
+/* Mientras se elige el párrafo, los que se pueden examinar se recuadran. */
+.hoja--examinando .parrafo--examinable {
+  outline: 1px dashed var(--acento);
+  outline-offset: 0.3rem;
+  cursor: zoom-in;
+}
+
+.hoja--examinando .parrafo--examinable .palabra {
+  cursor: zoom-in;
+}
+
+.hoja--examinando .parrafo--examinable:hover {
+  background: var(--lupa-fondo);
 }
 
 /* --- La carta ------------------------------------------------------------ */

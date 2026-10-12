@@ -97,15 +97,14 @@
         <div class="marcador__grupo marcador__grupo--lupa">
           <span class="marcador__etiqueta" aria-hidden="true">Lupas</span>
           <button type="button" class="boton-lupa" id="btn-lupa" aria-expanded="false" aria-controls="confirmar-lupa"
-            aria-label="Usar una lupa: señala el párrafo de un gazapo (cuesta medio borrón; quedan 3 lupas)">
+            aria-label="Usar una lupa: dice cuántos gazapos quedan en el párrafo que elijas (cuesta medio borrón; quedan 3 lupas)">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5 20 20"/></svg>
             <span class="boton-lupa__quedan" id="lupas-quedan" aria-hidden="true">3</span>
           </button>
-          <!-- Confirmación antes de gastar la lupa. -->
+          <!-- Aviso mientras se elige el párrafo que examinará la lupa. -->
           <div class="confirmar-lupa" id="confirmar-lupa" role="group" aria-labelledby="confirmar-lupa-texto" hidden>
-            <p id="confirmar-lupa-texto">¿Usar una lupa? Señalará el párrafo de un gazapo y cuesta medio borrón. Te quedan 3.</p>
+            <p id="confirmar-lupa-texto">Toca un párrafo y la lupa te dirá cuántos gazapos quedan en él. Cuesta medio borrón. Te quedan 3.</p>
             <div class="confirmar-lupa__botones">
-              <button type="button" class="boton boton--principal" id="btn-usar-lupa">Usar</button>
               <button type="button" class="boton boton--secundario" id="btn-cancelar-lupa">Cancelar</button>
             </div>
           </div>
@@ -176,8 +175,8 @@
       <h3>Ojo con las trampas</h3>
       <p>Algunas palabras suenan modernas o exóticas pero ya se decían entonces, como <em>canoa</em>, que ya aparece en el diario de Colón.</p>
       <h3>La lupa</h3>
-      <p>Si te atascas, la lupa señala el párrafo en el que hay un gazapo. Hay tres por partida y cada una cuesta medio borrón.</p>
-      <p>Cada lupa afina más que la anterior: si el gazapo señalado sigue sin cazar, la siguiente señala su frase, y la última, la palabra. Si ya lo has cazado, la siguiente lupa busca otro.</p>
+      <p>Si te atascas, pulsa la lupa y toca un párrafo: te dirá cuántos gazapos quedan en él por cazar (sin contar los que ya hayas encontrado). Hay tres por partida y cada una cuesta medio borrón.</p>
+      <p>El párrafo queda marcado con su cuenta, que baja a medida que cazas sus gazapos.</p>
       <h3>Las marcas</h3>
       <ul class="leyenda">
         <li><span class="palabra palabra--gazapo palabra--quieta">gazapo</span> rodeada en rojo: gazapo cazado.</li>

@@ -71,8 +71,7 @@
 
   // intentos: [{ clave, pos, tipo: 'gazapo' | 'trampa' | 'fallo' }]
   // pos: la palabra concreta que se marcó (su orden en la carta, del saludo a la firma).
-  // lupas: [{ nivel: 'parrafo' | 'frase' | 'palabra', pos: párrafo, palabra: posición del gazapo
-  //   señalado, tras: intentos que había al usarla }], hasta MAX_LUPAS.
+  // lupas: [{ pos: párrafo examinado, tras: intentos que había al usarla }], hasta MAX_LUPAS.
   var estado = { intentos: [], lupas: [] };
   var seleccion = null; // clave de la palabra seleccionada
   var seleccionBoton = null; // el botón concreto que se ha tocado
@@ -103,20 +102,13 @@
       // Las partidas de antes de la lupa no tienen ninguna; las de cuando había una sola,
       // la guardaban en «lupa».
       var lupas = guardado && (Array.isArray(guardado.lupas) ? guardado.lupas : (guardado.lupa ? [guardado.lupa] : []));
-      // Las de entonces eran todas de párrafo, sin gazapo apuntado: se toma el primero de ese párrafo.
+      // Las lupas de antes (que señalaban párrafo, frase o palabra) pasan a su párrafo; se
+      // siguen contando todas, porque costaron su medio borrón.
       estado.lupas = (lupas || []).filter(function (l) {
         return l && parrafosCarta[l.pos];
       }).slice(0, MAX_LUPAS).map(function (l) {
-        var objetivo = botones[l.palabra];
-        if (!objetivo || !reto.gazapos[objetivo.dataset.clave]) {
-          objetivo = Array.prototype.filter.call(parrafosCarta[l.pos].querySelectorAll('button.palabra'), function (b) {
-            return reto.gazapos[b.dataset.clave];
-          })[0];
-        }
         return {
-          nivel: NIVELES.indexOf(l.nivel) >= 0 ? l.nivel : 'parrafo',
           pos: l.pos,
-          palabra: objetivo ? Number(objetivo.dataset.pos) : null,
           tras: typeof l.tras === 'number' ? Math.min(l.tras, estado.intentos.length) : estado.intentos.length,
         };
       });
@@ -253,8 +245,6 @@
       });
     });
     marcarLupas();
-    var senalada = document.querySelector('#carta .palabra--lupa');
-    if (senalada && !senalada.getAttribute('aria-label')) senalada.setAttribute('aria-label', senalada.textContent + ' (señalada por la lupa)');
     compensarRenglon();
   }
 
@@ -366,12 +356,10 @@
 
   /* ---------- La lupa ---------- */
 
-  // Tres por partida, cada vez más finas sobre un mismo gazapo: la primera señala su
-  // párrafo; si sigue sin cazar, la segunda su frase y la tercera la palabra. Cazado ese,
-  // la siguiente vuelve a empezar por el párrafo de otro (el primero sin cazar, en orden),
-  // o por su frase si ese párrafo ya estaba señalado.
-  var NIVELES = ['parrafo', 'frase', 'palabra'];
-  var QUE_SENALA = { parrafo: 'el párrafo', frase: 'la frase', palabra: 'la palabra' };
+  // Tres por partida. Se pulsa la lupa, se toca un párrafo y dice cuántos gazapos quedan
+  // en él por cazar. El párrafo queda examinado toda la partida y su cuenta baja al ir
+  // cazándolos. Un párrafo ya examinado no se puede volver a examinar.
+  var examinando = false;
 
   function lupasQuedan() {
     return MAX_LUPAS - estado.lupas.length;
@@ -381,64 +369,44 @@
     return parrafosCarta.indexOf(boton.closest('p'));
   }
 
-  // El primer gazapo sin cazar, en orden de lectura: su primera aparición.
-  function gazapoSinCazar() {
-    for (var i = 0; i < botones.length; i++) {
-      var clave = botones[i].dataset.clave;
-      if (reto.gazapos[clave] && !intentoDe(clave)) return botones[i];
-    }
-    return null;
+  function examinado(pos) {
+    return estado.lupas.some(function (l) { return l.pos === pos; });
   }
 
-  // Lo que señalaría la próxima lupa: { nivel, palabra (posición del gazapo) }.
-  function proximaLupa() {
-    var ultima = estado.lupas[estado.lupas.length - 1];
-    var objetivo = ultima && botones[ultima.palabra];
-    if (objetivo && !intentoDe(objetivo.dataset.clave)) {
-      var nivel = NIVELES.indexOf(ultima.nivel) + 1;
-      if (nivel < NIVELES.length) return { nivel: NIVELES[nivel], palabra: ultima.palabra };
-    }
-    var boton = gazapoSinCazar();
-    if (!boton) return null;
-    // Si su párrafo ya lo señaló otra lupa, se pasa directamente a la frase.
-    var yaSenalado = estado.lupas.some(function (l) { return l.nivel === 'parrafo' && l.pos === parrafoDe(boton); });
-    return { nivel: yaSenalado ? 'frase' : 'parrafo', palabra: Number(boton.dataset.pos) };
+  // Los gazapos del párrafo que aún no se han cazado (cada uno una vez, aunque se repita).
+  function gazaposQuedan(pos) {
+    var vistos = {};
+    Array.prototype.forEach.call(parrafosCarta[pos].querySelectorAll('button.palabra'), function (b) {
+      var clave = b.dataset.clave;
+      if (reto.gazapos[clave] && !intentoDe(clave)) vistos[clave] = true;
+    });
+    return Object.keys(vistos).length;
   }
 
-  // No se puede usar si su medio borrón acabara la partida.
+  function textoQuedan(n) {
+    return n === 0 ? 'ningún gazapo' : (n === 1 ? '1 gazapo' : n + ' gazapos');
+  }
+
+  // No se puede usar si su medio borrón acabara la partida, ni si no queda párrafo por examinar.
   function lupaDisponible() {
-    return lupasQuedan() > 0 && !terminada() && borrones() + COSTE_LUPA < MAX_BORRONES && !!proximaLupa();
+    return lupasQuedan() > 0 && !terminada() && borrones() + COSTE_LUPA < MAX_BORRONES &&
+      parrafosCarta.some(function (p, pos) { return !examinado(pos); });
   }
 
   function pintarLupa() {
     var boton = $('btn-lupa');
     var quedan = lupasQuedan();
     var disponible = lupaDisponible();
-    var proxima = disponible ? proximaLupa() : null;
     boton.disabled = !disponible;
     boton.classList.toggle('boton-lupa--usada', quedan === 0);
     $('lupas-quedan').textContent = quedan;
     var lupas = quedan === 1 ? '1 lupa' : quedan + ' lupas';
     boton.setAttribute('aria-label', quedan === 0 ? 'Lupas usadas'
-      : (disponible ? 'Usar una lupa: señala ' + QUE_SENALA[proxima.nivel] + ' de un gazapo (cuesta medio borrón; quedan ' + lupas + ')'
+      : (disponible ? 'Usar una lupa: dice cuántos gazapos quedan en el párrafo que elijas (cuesta medio borrón; quedan ' + lupas + ')'
         : 'Lupa no disponible (quedan ' + lupas + ')'));
-    if (proxima) {
-      $('confirmar-lupa-texto').textContent = '¿Usar una lupa? Señalará ' + QUE_SENALA[proxima.nivel] +
-        ' de un gazapo y cuesta medio borrón. ' + (quedan === 1 ? 'Es la última.' : 'Te quedan ' + quedan + '.');
-    }
+    $('confirmar-lupa-texto').textContent = 'Toca un párrafo y la lupa te dirá cuántos gazapos quedan en él. Cuesta medio borrón. ' +
+      (quedan === 1 ? 'Es la última.' : 'Te quedan ' + quedan + '.');
     if (!disponible) cerrarConfirmacionLupa(false);
-  }
-
-  // Los trozos de la frase en la que está el botón (las frases acaban en . ; : ? ! …).
-  function fraseDe(boton) {
-    var trozos = Array.prototype.slice.call(boton.closest('p').querySelectorAll('.trozo'));
-    var i = trozos.indexOf(boton.parentNode);
-    var fin = /[.;:?!…][»"”’)]*$/;
-    var desde = i;
-    while (desde > 0 && !fin.test(trozos[desde - 1].textContent)) desde--;
-    var hasta = i;
-    while (hasta < trozos.length - 1 && !fin.test(trozos[hasta].textContent)) hasta++;
-    return trozos.slice(desde, hasta + 1);
   }
 
   function avisoLector(texto, antesDe) {
@@ -448,44 +416,44 @@
     antesDe.parentNode.insertBefore(aviso, antesDe);
   }
 
-  // Pinta lo que han señalado las lupas. El párrafo queda marcado toda la partida; la
-  // frase y la palabra, mientras su gazapo siga sin cazar.
+  // Pinta los párrafos examinados, con los gazapos que les quedan en una etiqueta.
   function marcarLupas() {
-    Array.prototype.forEach.call(document.querySelectorAll('#carta .aviso-lupa'), function (a) { a.remove(); });
-    Array.prototype.forEach.call(document.querySelectorAll('#carta .trozo--lupa, #carta .palabra--lupa'), function (el) {
-      el.classList.remove('trozo--lupa', 'palabra--lupa');
+    Array.prototype.forEach.call(document.querySelectorAll('#carta .aviso-lupa, #carta .cuenta-lupa'), function (a) { a.remove(); });
+    parrafosCarta.forEach(function (p, pos) {
+      p.classList.remove('parrafo--lupa');
+      p.classList.toggle('parrafo--examinable', !examinado(pos));
     });
-    parrafosCarta.forEach(function (p) { p.classList.remove('parrafo--lupa'); });
-
-    var fin = terminada();
     estado.lupas.forEach(function (l) {
-      var objetivo = botones[l.palabra];
-      if (!objetivo) return;
-      var pendiente = !fin && !intentoDe(objetivo.dataset.clave);
-      if (l.nivel === 'parrafo') {
-        var p = parrafosCarta[l.pos];
-        if (!p.classList.contains('parrafo--lupa')) {
-          p.classList.add('parrafo--lupa');
-          avisoLector('Párrafo señalado por la lupa: ', p.firstChild);
-        }
-      } else if (l.nivel === 'frase' && pendiente) {
-        var frase = fraseDe(objetivo);
-        frase.forEach(function (t) { t.classList.add('trozo--lupa'); });
-        avisoLector('Frase señalada por la lupa: ', frase[0]);
-      } else if (l.nivel === 'palabra' && pendiente) {
-        objetivo.classList.add('palabra--lupa');
-      }
+      var p = parrafosCarta[l.pos];
+      if (p.classList.contains('parrafo--lupa')) return;
+      p.classList.add('parrafo--lupa');
+      var n = gazaposQuedan(l.pos);
+      avisoLector('Párrafo examinado con la lupa: ' + (n === 0 ? 'no queda ningún gazapo' : (n === 1 ? 'queda 1 gazapo' : 'quedan ' + n + ' gazapos')) + '. ', p.firstChild);
+      var cuenta = document.createElement('span');
+      cuenta.className = 'cuenta-lupa' + (n === 0 ? ' cuenta-lupa--cero' : '');
+      cuenta.setAttribute('aria-hidden', 'true');
+      cuenta.textContent = textoQuedan(n);
+      p.appendChild(cuenta);
     });
   }
 
+  // Pulsar la lupa abre su aviso y pone la carta a la espera de que se toque un párrafo.
   function abrirConfirmacionLupa() {
     if (!lupaDisponible()) return;
+    seleccion = null;
+    seleccionBoton = null;
+    marcarPalabras();
+    pintarBoton();
+    examinando = true;
+    $('carta').classList.add('hoja--examinando');
     $('confirmar-lupa').hidden = false;
     $('btn-lupa').setAttribute('aria-expanded', 'true');
-    $('btn-usar-lupa').focus();
+    $('btn-cancelar-lupa').focus();
   }
 
   function cerrarConfirmacionLupa(enfocar) {
+    examinando = false;
+    $('carta').classList.remove('hoja--examinando');
     var caja = $('confirmar-lupa');
     if (caja.hidden) return;
     caja.hidden = true;
@@ -493,26 +461,34 @@
     if (enfocar && !$('btn-lupa').disabled) $('btn-lupa').focus();
   }
 
-  function usarLupa() {
-    if (!lupaDisponible()) return;
-    var proxima = proximaLupa();
-    var objetivo = botones[proxima.palabra];
-    estado.lupas.push({ nivel: proxima.nivel, pos: parrafoDe(objetivo), palabra: proxima.palabra, tras: estado.intentos.length });
+  function usarLupa(pos) {
+    if (!lupaDisponible() || examinado(pos)) return;
+    estado.lupas.push({ pos: pos, tras: estado.intentos.length });
     guardarEstado();
     cerrarConfirmacionLupa(false);
     pintarMarcador('borron');
-    mostrarNotaLupa(proxima.nivel);
+    mostrarNotaLupa(gazaposQuedan(pos));
     marcarPalabras();
     pintarBoton();
 
-    // El foco pasa del botón a lo señalado, para leerlo.
-    var destino = proxima.nivel === 'parrafo' ? parrafosCarta[parrafoDe(objetivo)] : objetivo;
-    if (destino.tagName === 'P') destino.setAttribute('tabindex', '-1');
+    // El foco pasa al párrafo examinado, para leerlo.
+    var destino = parrafosCarta[pos];
+    destino.setAttribute('tabindex', '-1');
     destino.focus({ preventScroll: true });
     if (destino.scrollIntoView) {
       var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      destino.scrollIntoView({ block: proxima.nivel === 'parrafo' ? 'nearest' : 'center', behavior: reducido ? 'auto' : 'smooth' });
+      destino.scrollIntoView({ block: 'nearest', behavior: reducido ? 'auto' : 'smooth' });
     }
+  }
+
+  // Mientras se examina, tocar un párrafo (o, con el teclado, una de sus palabras) lo examina.
+  // Devuelve true si el toque era para la lupa.
+  function tocarConLupa(e) {
+    if (!examinando) return false;
+    var p = e.target.closest && e.target.closest('p');
+    var pos = p ? parrafosCarta.indexOf(p) : -1;
+    if (pos >= 0 && !examinado(pos)) usarLupa(pos);
+    return true;
   }
 
   function prepararLupa() {
@@ -520,14 +496,13 @@
       if ($('confirmar-lupa').hidden) abrirConfirmacionLupa();
       else cerrarConfirmacionLupa(true);
     });
-    $('btn-usar-lupa').addEventListener('click', usarLupa);
     $('btn-cancelar-lupa').addEventListener('click', function () { cerrarConfirmacionLupa(true); });
-    $('confirmar-lupa').addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') cerrarConfirmacionLupa(true);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && examinando) cerrarConfirmacionLupa(true);
     });
-    // Tocar fuera de la burbuja la cierra.
+    // Tocar fuera de la burbuja y de la carta la cierra.
     document.addEventListener('click', function (e) {
-      if (!e.target.closest('#confirmar-lupa, #btn-lupa')) cerrarConfirmacionLupa(false);
+      if (!e.target.closest('#confirmar-lupa, #btn-lupa, #carta')) cerrarConfirmacionLupa(false);
     });
   }
 
@@ -575,16 +550,14 @@
     }
   }
 
-  function mostrarNotaLupa(nivel) {
+  // n: los gazapos que quedan por cazar en el párrafo examinado.
+  function mostrarNotaLupa(n) {
     var nota = $('nota');
     var cuerpo = $('nota-cuerpo');
     cuerpo.textContent = '';
     nota.className = 'nota nota--lupa';
-    cuerpo.appendChild(p({
-      parrafo: 'La lupa señala un párrafo: en él hay un gazapo sin cazar.',
-      frase: 'La lupa afina: el gazapo está en la frase señalada.',
-      palabra: 'La lupa lo señala: el gazapo es la palabra subrayada.',
-    }[nivel], 'nota__veredicto'));
+    cuerpo.appendChild(p(n === 0 ? 'La lupa examina el párrafo: aquí no queda ningún gazapo por cazar.'
+      : 'La lupa examina el párrafo: aquí ' + (n === 1 ? 'queda 1 gazapo' : 'quedan ' + n + ' gazapos') + ' por cazar.', 'nota__veredicto'));
     var quedan = lupasQuedan();
     cuerpo.appendChild(p('Te cuesta medio borrón. Ahora llevas ' + textoBorrones(borrones()) + '. ' +
       (quedan === 0 ? 'Ya no te quedan lupas.' : (quedan === 1 ? 'Te queda 1 lupa.' : 'Te quedan ' + quedan + ' lupas.'))));
@@ -1458,6 +1431,7 @@
     pintarBoton();
 
     $('carta').addEventListener('click', function (e) {
+      if (tocarConLupa(e)) return;
       var boton = e.target.closest && e.target.closest('button.palabra');
       if (boton) tocarPalabra(boton);
     });
