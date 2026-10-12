@@ -1436,6 +1436,14 @@
       if (boton) tocarPalabra(boton);
     });
     $('btn-marcar').addEventListener('click', confirmar);
+    // Tocar fuera de las palabras y de la burbuja quita la selección.
+    document.addEventListener('click', function (e) {
+      if (!seleccionBoton || (e.target.closest && e.target.closest('button.palabra, #burbuja'))) return;
+      seleccion = null;
+      seleccionBoton = null;
+      marcarPalabras();
+      pintarBoton();
+    });
     window.addEventListener('resize', recolocar);
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(function () {
