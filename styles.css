@@ -130,24 +130,12 @@ button {
   min-width: 0;
 }
 
-.cabecera__titulos {
-  min-width: 0;
-}
-
 .titulo {
   margin: 0;
   font-family: var(--fuente-titulo);
   font-weight: 400;
   font-size: 2rem;
   line-height: 1;
-}
-
-.subtitulo {
-  margin: 0.2rem 0 0;
-  font-family: var(--fuente-versalitas);
-  font-size: 0.95rem;
-  color: var(--tinta-suave);
-  letter-spacing: 0.03em;
 }
 
 .boton-ayuda {
@@ -214,20 +202,12 @@ button {
 
 /* --- Fecha y marcador ---------------------------------------------------- */
 
-.fecha-reto {
-  margin: 1rem 0 0.5rem;
-  text-align: center;
-  font-family: var(--fuente-versalitas);
-  color: var(--tinta-suave);
-  letter-spacing: 0.04em;
-}
-
 .marcador {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 1.75rem;
-  margin: 0 0 1rem;
+  margin: 1rem 0;
 }
 
 .marcador__grupo {

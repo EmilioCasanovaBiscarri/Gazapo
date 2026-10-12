@@ -43,11 +43,6 @@
     return { anio: Number(p[0]), mes: Number(p[1]) - 1, dia: Number(p[2]) };
   }
 
-  function fechaLarga(iso) {
-    var f = partesFecha(iso);
-    return f.dia + ' de ' + MESES[f.mes] + ' de ' + f.anio;
-  }
-
   function fechaCorta(iso) {
     var f = partesFecha(iso);
     return f.dia + ' ' + MESES_CORTOS[f.mes];
@@ -1418,7 +1413,6 @@
   }
 
   function empezar() {
-    $('fecha-reto').textContent = fechaLarga(reto.fecha);
     pintarCarta();
     cargarEstado();
     marcarPalabras();
