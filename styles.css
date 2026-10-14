@@ -612,13 +612,8 @@ button.palabra[aria-disabled="true"] {
   transform: rotate(2deg);
 }
 
-.palabra--trampa {
-  color: var(--tinta-suave);
-  text-decoration: underline wavy var(--regla);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 0.22em;
-}
-
+/* Trampa y fallo son borrones: se tachan igual. */
+.palabra--trampa,
 .palabra--fallo {
   color: var(--tinta-suave);
   text-decoration: line-through var(--tinta);
