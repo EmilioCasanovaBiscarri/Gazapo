@@ -2547,4 +2547,845 @@ window.GAZAPO_RETOS = [
       'píldoras': { termino: 'píldora', desde: 1500, aprox: true, explicacion: 'Hubo quien vendió «píldoras anticometa».' },
     },
   },
+
+  {
+    fecha: '2026-12-11',
+    anio: 1567,
+    encabezado: 'En Santiago de León de Caracas, a 30 de julio de 1567',
+    saludo: 'Señora madre:',
+    parrafos: [
+      'Diego de Losada ha fundado por fin una ciudad en el valle de los caracas, entre el monte y el mar. Por ahora son cuatro casas de barro y una iglesia de paja, junto a la que será la plaza Bolívar.',
+      'Los naturales nos dan arepas de maíz y una bebida de cacao muy espesa. Por las tardes se juntan los soldados a jugar al béisbol en la sabana, y los domingos bailan un joropo que no hay quien siga.',
+      'Pida a Dios que no vuelvan los indios de Guaicaipuro, que nos tienen en vela muchas noches.',
+    ],
+    despedida: 'Su hijo, que le besa las manos,',
+    firma: 'Gonzalo',
+    gazapos: {
+      'bolívar': {
+        termino: 'Bolívar',
+        desde: 1783,
+        explicacion: 'Simón Bolívar nace en Caracas en 1783, y la plaza mayor lleva su nombre desde 1874.',
+        epoca: 'En 1567 se habría hablado de la plaza mayor.',
+      },
+      'béisbol': {
+        termino: 'béisbol',
+        desde: 1845,
+        explicacion: 'El béisbol nace en Estados Unidos a mediados del siglo XIX y llega a Venezuela a finales de ese siglo.',
+        epoca: 'En 1567 los soldados jugaban a los naipes, a los dados o a la pelota.',
+      },
+      'joropo': {
+        termino: 'joropo',
+        desde: 1750, aprox: true,
+        explicacion: 'El joropo, el baile nacional de Venezuela, se forma en los llanos a lo largo del siglo XVIII.',
+        epoca: 'En 1567 se habrían bailado danzas de los naturales o seguidillas y zarabandas.',
+      },
+    },
+    trampas: {
+      'arepas': { termino: 'arepa', desde: 1560, aprox: true, explicacion: 'Los cronistas del siglo XVI ya describen las tortas de maíz de los indígenas de la costa.' },
+      'cacao': { termino: 'cacao', desde: 1535, explicacion: 'Los españoles conocían el cacao desde la conquista de México.' },
+      'losada': { termino: 'Losada', desde: 1567, explicacion: 'Diego de Losada fundó Caracas en julio de 1567.' },
+      'guaicaipuro': { termino: 'Guaicaipuro', desde: 1560, aprox: true, explicacion: 'El cacique Guaicaipuro encabezó la resistencia indígena en el valle en la década de 1560.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-12',
+    anio: 1563,
+    encabezado: 'En San Lorenzo de El Escorial, a 24 de abril de 1563',
+    saludo: 'Querido Andrés:',
+    parrafos: [
+      'Ayer pusieron la primera piedra del monasterio que manda hacer Su Majestad, y Juan Bautista de Toledo nos enseñó los planos. Dicen que será todo de granito, sacado de estas mismas sierras.',
+      'Los canteros suben los bloques con bueyes y con una grúa de madera, aunque el maestro dice que pronto traerán excavadoras de Flandes. Para las torres pondrá ascensores, porque el rey no está para subir tantas escaleras.',
+      'Yo duermo en una barraca con otros doce, y los domingos bajamos al pueblo en autobús a oír misa.',
+    ],
+    despedida: 'Tu primo,',
+    firma: 'Mateo',
+    gazapos: {
+      'excavadoras': {
+        termino: 'excavadora',
+        desde: 1839,
+        explicacion: 'La primera excavadora mecánica, movida por vapor, se patenta en Estados Unidos en 1839.',
+        epoca: 'En 1563 se cavaba con picos, palas y espuertas.',
+      },
+      'ascensores': {
+        termino: 'ascensor',
+        desde: 1853,
+        explicacion: 'El ascensor seguro de Otis se presenta en Nueva York en 1853.',
+        epoca: 'En 1563 se subía a pie, por escaleras o rampas.',
+      },
+      'autobús': {
+        termino: 'autobús',
+        desde: 1895,
+        explicacion: 'El primer autobús con motor de explosión circula en Alemania en 1895.',
+        epoca: 'En 1563 se iba andando, a caballo o en carreta.',
+      },
+    },
+    trampas: {
+      'granito': { termino: 'granito', desde: 1550, aprox: true, explicacion: 'El monasterio se levantó con el granito de la sierra de Guadarrama.' },
+      'grúa': { termino: 'grúa', desde: 1400, aprox: true, explicacion: 'Las grúas de madera movidas por ruedas se usaban desde la Edad Media.' },
+      'canteros': { termino: 'cantero', desde: 1250, aprox: true, explicacion: 'El oficio de labrar la piedra es muy antiguo.' },
+      'planos': { termino: 'plano', desde: 1550, aprox: true, explicacion: 'Juan Bautista de Toledo trazó los planos del edificio antes de morir en 1567.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-13',
+    anio: 1821,
+    encabezado: 'En México, a 28 de septiembre de 1821',
+    saludo: 'Querido compadre:',
+    parrafos: [
+      'Ayer entró el Ejército Trigarante en la capital, con Iturbide a la cabeza, y hoy se ha firmado el acta de independencia. Las calles están llenas de banderas verdes, blancas y rojas.',
+      'En las fondas corre el pulque, y en las casas buenas el chocolate y el tequila. Mi hermana dice que no ha llorado tanto desde la última telenovela que vio.',
+      'Te mando unas fotografías del desfile para que veas el gentío, y en cuanto pase el jaleo tomaré un taxi para ir a verte.',
+    ],
+    despedida: 'Tuyo,',
+    firma: 'Anselmo',
+    gazapos: {
+      'telenovela': {
+        termino: 'telenovela',
+        desde: 1951,
+        explicacion: 'Las telenovelas nacen con la televisión, en los años cincuenta.',
+        epoca: 'En 1821 se lloraba con las novelas por entregas o en el teatro.',
+      },
+      'fotografías': {
+        termino: 'fotografía',
+        desde: 1839,
+        explicacion: 'La fotografía se presenta en París en 1839.',
+        epoca: 'En 1821 el desfile se habría contado por carta o en un grabado.',
+      },
+      'taxi': {
+        termino: 'taxi',
+        desde: 1907,
+        explicacion: 'La palabra viene del taxímetro, y los primeros taxis de motor son de principios del siglo XX.',
+        epoca: 'En 1821 se alquilaba un coche de caballos o se iba a pie.',
+      },
+    },
+    trampas: {
+      'tequila': { termino: 'tequila', desde: 1650, aprox: true, explicacion: 'El aguardiente de agave de la zona de Tequila se destilaba desde el siglo XVII.' },
+      'pulque': { termino: 'pulque', desde: 1550, aprox: true, explicacion: 'Es una bebida prehispánica, muy popular en la Nueva España.' },
+      'trigarante': { termino: 'Trigarante', desde: 1821, explicacion: 'El ejército de las tres garantías entró en la Ciudad de México el 27 de septiembre de 1821.' },
+      'iturbide': { termino: 'Iturbide', desde: 1821, explicacion: 'Agustín de Iturbide encabezó la entrada y luego fue proclamado emperador.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-14',
+    anio: 1911,
+    encabezado: 'En el polo sur, a 14 de diciembre de 1911',
+    saludo: 'Querida Kristine:',
+    parrafos: [
+      'Hoy, a las tres de la tarde, hemos llegado al polo. Somos cinco noruegos, con nuestros esquís, nuestros trineos y los perros que nos quedan. Hemos plantado la bandera y la tienda.',
+      'El frío es terrible, pero mi forro polar aguanta bien, y la comida liofilizada pesa poco. Dicen que los ingleses vienen detrás con caballos y motonieves.',
+      'No sé cuándo podrás leer esto: hasta que no volvamos al barco no habrá modo de mandarlo.',
+    ],
+    despedida: 'Con todo mi cariño,',
+    firma: 'Olav',
+    gazapos: {
+      'polar': {
+        termino: 'forro polar',
+        desde: 1979,
+        explicacion: 'El tejido de forro polar se inventa en Estados Unidos a finales de los años setenta.',
+        epoca: 'En 1911 los exploradores vestían pieles de reno y lana, como los inuit.',
+      },
+      'liofilizada': {
+        termino: 'liofilizado',
+        desde: 1940, aprox: true,
+        explicacion: 'La liofilización se aplica a gran escala durante la Segunda Guerra Mundial.',
+        epoca: 'En 1911 se comía pemmican, galletas y carne de perro.',
+      },
+      'motonieves': {
+        termino: 'motonieve',
+        desde: 1960,
+        explicacion: 'Las motos de nieve ligeras se popularizan a principios de los años sesenta.',
+        epoca: 'Scott sí llevó trineos de motor, pero eran tractores de orugas que se averiaron enseguida.',
+      },
+    },
+    trampas: {
+      'esquís': { termino: 'esquí', desde: 1880, aprox: true, explicacion: 'Los noruegos llevaban siglos esquiando; Amundsen eligió esquís y perros.' },
+      'trineos': { termino: 'trineo', desde: 1600, aprox: true, explicacion: 'Los trineos tirados por perros eran la base del plan de Amundsen.' },
+      'caballos': { termino: 'caballos', desde: 1911, explicacion: 'Scott llevó ponis de Manchuria, que no resistieron el frío.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-15',
+    anio: 1946,
+    encabezado: 'En Filadelfia, a 15 de febrero de 1946',
+    saludo: 'Querido Pedro:',
+    parrafos: [
+      'Hoy han presentado en la universidad la ENIAC, una calculadora electrónica que ocupa una sala entera. Funciona con miles de válvulas y se le dan las órdenes con tarjetas perforadas y cables.',
+      'Hace en un segundo lo que a nosotros nos lleva días. Uno de los ingenieros dice que pronto cabrá en unos pocos chips, que guardaremos los datos en disquetes y que la usaremos para los videojuegos.',
+      'Yo no sé qué decirte. De momento, el teclado de la máquina de escribir me basta.',
+    ],
+    despedida: 'Un abrazo de tu amigo,',
+    firma: 'Joaquín',
+    gazapos: {
+      'chips': {
+        termino: 'chip',
+        desde: 1958,
+        explicacion: 'El circuito integrado se inventa en 1958.',
+        epoca: 'En 1946 se hablaba de válvulas y relés.',
+      },
+      'videojuegos': {
+        termino: 'videojuego',
+        desde: 1972,
+        explicacion: 'Los videojuegos llegan al público en los años setenta, con máquinas como el Pong.',
+        epoca: 'En 1946 se jugaba a las cartas o al ajedrez.',
+      },
+      'disquetes': {
+        termino: 'disquete',
+        desde: 1971,
+        explicacion: 'IBM lanza el disquete en 1971.',
+        epoca: 'En 1946 los datos se guardaban en tarjetas perforadas o en cinta de papel.',
+      },
+    },
+    trampas: {
+      'válvulas': { termino: 'válvula', desde: 1904, explicacion: 'La válvula de vacío se inventa en 1904; la ENIAC tenía casi dieciocho mil.' },
+      'perforadas': { termino: 'tarjeta perforada', desde: 1890, explicacion: 'Se usaban desde el censo de Estados Unidos de 1890.' },
+      'teclado': { termino: 'teclado', desde: 1870, aprox: true, explicacion: 'Las máquinas de escribir con teclado se venden desde la década de 1870.' },
+      'eniac': { termino: 'ENIAC', desde: 1946, explicacion: 'Se presentó al público el 15 de febrero de 1946.' },
+      'electrónica': { termino: 'electrónico', desde: 1930, aprox: true, explicacion: 'La palabra ya se usaba: ENIAC son las siglas en inglés de «integrador y computador numérico electrónico».' },
+    },
+  },
+
+  {
+    fecha: '2026-12-16',
+    anio: 1773,
+    encabezado: 'En Boston, a 16 de diciembre de 1773',
+    saludo: 'Muy señor mío:',
+    parrafos: [
+      'Esta noche unos vecinos, disfrazados de indios mohawks, han subido a los barcos de la Compañía de las Indias y han tirado al agua todo el té. Dicen que no pagarán impuestos a un parlamento en el que no tienen voz.',
+      'Los yanquis están furiosos con el rey. Aquí ya nadie toma té: ni en hojas, ni en bolsitas. Mi patrona se calienta el café en el microondas y lo guarda en un termo.',
+      'Le ruego que me envíe los dólares que me debe por el último cargamento de vino.',
+    ],
+    despedida: 'Su seguro servidor,',
+    firma: 'Juan Bautista Echevarría',
+    gazapos: {
+      'bolsitas': {
+        termino: 'bolsita de té',
+        desde: 1908,
+        explicacion: 'Las bolsitas de té nacen por casualidad en Nueva York hacia 1908, cuando un comerciante manda muestras en saquitos de seda.',
+        epoca: 'En 1773 el té se vendía suelto, en hojas, en cajas y en panes prensados.',
+      },
+      'microondas': {
+        termino: 'microondas',
+        desde: 1947,
+        explicacion: 'El primer horno de microondas se vende en 1947.',
+        epoca: 'En 1773 se calentaba todo al fuego.',
+      },
+      'termo': {
+        termino: 'termo',
+        desde: 1904,
+        explicacion: 'El termo se patenta en Alemania en 1904 con la marca Thermos.',
+        epoca: 'En 1773 el café se guardaba en una cafetera junto al fuego.',
+      },
+    },
+    trampas: {
+      'mohawks': { termino: 'mohawk', desde: 1773, explicacion: 'Los asaltantes del motín del té se disfrazaron, en efecto, de indios mohawks.' },
+      'yanquis': { termino: 'yanqui', desde: 1758, explicacion: '«Yankee» ya se usaba en el siglo XVIII para los colonos de Nueva Inglaterra.' },
+      'dólares': { termino: 'dólar', desde: 1690, aprox: true, explicacion: 'En las colonias inglesas llamaban «dollar» al real de a ocho español, que circulaba por todas partes.' },
+      'té': { termino: 'té', desde: 1650, aprox: true, explicacion: 'El té era la bebida de moda; el motín fue la noche del 16 de diciembre de 1773.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-17',
+    anio: 1903,
+    encabezado: 'En Kitty Hawk, a 17 de diciembre de 1903',
+    saludo: 'Querido hermano:',
+    parrafos: [
+      'Esta mañana he visto volar a los Wright. Orville se tumbó en su aparato, encendió el motor y estuvo doce segundos en el aire. Luego Wilbur llegó más lejos.',
+      'Son dos hermanos que tienen una tienda de bicicletas en Dayton. Esta tarde han mandado un telegrama a su padre. Uno de los mirones decía que pronto habrá un aeropuerto en cada ciudad, con azafatas que sirvan café en el aire.',
+      'Yo, por si acaso, llevaría un paracaídas. Y gasolina de sobra, que aquí no hay ni una gasolinera.',
+    ],
+    despedida: 'Un abrazo,',
+    firma: 'Tomás',
+    gazapos: {
+      'aeropuerto': {
+        termino: 'aeropuerto',
+        desde: 1919,
+        explicacion: 'La palabra y los primeros aeropuertos con servicio de pasajeros son de después de la Primera Guerra Mundial.',
+        epoca: 'En 1903 los Wright despegaban de una duna, sobre un raíl de madera.',
+      },
+      'azafatas': {
+        termino: 'azafata',
+        desde: 1930,
+        explicacion: 'Las primeras azafatas de vuelo trabajan en 1930 en Estados Unidos. Antes, «azafata» era la criada de la reina.',
+        epoca: 'En 1903 en el aparato solo cabía el piloto, tumbado.',
+      },
+      'gasolinera': {
+        termino: 'gasolinera',
+        desde: 1910, aprox: true,
+        explicacion: 'Los surtidores de gasolina aparecen con la difusión del automóvil, a partir de 1905 en Estados Unidos.',
+        epoca: 'En 1903 la gasolina se compraba en latas, en la droguería.',
+      },
+    },
+    trampas: {
+      'paracaídas': { termino: 'paracaídas', desde: 1797, explicacion: 'André-Jacques Garnerin saltó en paracaídas desde un globo en 1797.' },
+      'bicicletas': { termino: 'bicicleta', desde: 1885, aprox: true, explicacion: 'Los Wright tenían, en efecto, una tienda de bicicletas en Dayton.' },
+      'telegrama': { termino: 'telegrama', desde: 1860, aprox: true, explicacion: 'Mandaron un telegrama a su padre esa misma tarde.' },
+      'motor': { termino: 'motor', desde: 1860, aprox: true, explicacion: 'El Flyer llevaba un motor de gasolina de doce caballos, construido por su mecánico.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-18',
+    anio: 1859,
+    encabezado: 'En Londres, a 26 de noviembre de 1859',
+    saludo: 'Estimado colega:',
+    parrafos: [
+      'Le envío el libro que todo Londres comenta: «El origen de las especies», de Charles Darwin. Se agotó el primer día. Darwin cuenta lo que vio en las Galápagos durante su viaje en el Beagle y lo que dicen los fósiles.',
+      'Sostiene que las especies cambian poco a poco y que los genes pasan de padres a hijos. Algún día se leerá todo en el ADN, como en un libro.',
+      'Esta noche lo discutiremos en el club, a la luz de las bombillas nuevas.',
+    ],
+    despedida: 'Afectuosamente,',
+    firma: 'Ramón',
+    gazapos: {
+      'genes': {
+        termino: 'gen',
+        desde: 1909,
+        explicacion: 'La palabra «gen» la acuña el danés Wilhelm Johannsen en 1909. Darwin no sabía cómo se heredaban los caracteres.',
+        epoca: 'En 1859 se hablaba de herencia o de semejanza entre padres e hijos.',
+      },
+      'adn': {
+        termino: 'ADN',
+        desde: 1944,
+        explicacion: 'En 1944 se demuestra que el ADN lleva la herencia; su estructura se descubre en 1953.',
+        epoca: 'En 1859 nadie sabía qué sustancia transmitía la herencia.',
+      },
+      'bombillas': {
+        termino: 'bombilla',
+        desde: 1879,
+        explicacion: 'Edison presenta su bombilla en 1879.',
+        epoca: 'En 1859 los clubes de Londres se alumbraban con gas o con velas.',
+      },
+    },
+    trampas: {
+      'galápagos': { termino: 'Galápagos', desde: 1835, explicacion: 'Darwin estuvo en las Galápagos en 1835.' },
+      'beagle': { termino: 'Beagle', desde: 1831, explicacion: 'El viaje del Beagle duró de 1831 a 1836.' },
+      'fósiles': { termino: 'fósil', desde: 1700, aprox: true, explicacion: 'Los fósiles se estudiaban desde mucho antes.' },
+      'agotó': { termino: 'agotar', desde: 1859, explicacion: 'Los 1250 ejemplares de la primera edición se vendieron el 24 de noviembre de 1859.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-19',
+    anio: 1571,
+    encabezado: 'En Manila, a 25 de junio de 1571',
+    saludo: 'Hermano mío:',
+    parrafos: [
+      'Miguel López de Legazpi ha fundado ayer una ciudad junto al río Pasig y la ha llamado Manila. Estas islas se llaman Filipinas por nuestro rey Felipe, y el galeón que trae la plata de México llega cada año.',
+      'Los naturales cocinan la carne en adobo, con vinagre y ajo, y comen unos mangos dulcísimos. Las calles se llenan de jeepneys de colores, y los muchachos juegan al baloncesto en la plaza.',
+      'Mi patrona le echa kétchup a todo. Te escribo deprisa, que sale el barco.',
+    ],
+    despedida: 'Tu hermano,',
+    firma: 'Lope',
+    gazapos: {
+      'jeepneys': {
+        termino: 'jeepney',
+        desde: 1945,
+        explicacion: 'Los jeepneys nacen de los jeeps que dejó el ejército estadounidense tras la Segunda Guerra Mundial.',
+        epoca: 'En 1571 se iba a pie, en carabao o en barca.',
+      },
+      'baloncesto': {
+        termino: 'baloncesto',
+        desde: 1891,
+        explicacion: 'James Naismith inventa el baloncesto en 1891. Hoy es el deporte más popular de Filipinas.',
+        epoca: 'En 1571 los muchachos jugaban a la pelota o a la sipa, con el pie.',
+      },
+      'kétchup': {
+        termino: 'kétchup',
+        desde: 1876,
+        explicacion: 'La salsa de tomate embotellada se populariza en Estados Unidos en 1876. El tomate ni siquiera había llegado a Asia.',
+        epoca: 'En 1571 se aliñaba con vinagre, sal o salsa de pescado.',
+      },
+    },
+    trampas: {
+      'adobo': { termino: 'adobo', desde: 1500, aprox: true, explicacion: 'Los españoles dieron nombre de «adobo» al guiso local de vinagre, que ya existía.' },
+      'filipinas': { termino: 'Filipinas', desde: 1543, explicacion: 'Ruy López de Villalobos las llamó así en 1543 en honor del príncipe Felipe.' },
+      'galeón': { termino: 'galeón', desde: 1565, explicacion: 'El galeón de Manila unía Filipinas con Acapulco desde 1565.' },
+      'mangos': { termino: 'mango', desde: 1550, aprox: true, explicacion: 'El mango es originario del sur de Asia y se cultivaba en Filipinas desde antiguo.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-20',
+    anio: 1849,
+    encabezado: 'En San Francisco, a 20 de diciembre de 1849',
+    saludo: 'Querida Rosario:',
+    parrafos: [
+      'Desde que encontraron oro en el molino de Sutter, aquí llega gente de todo el mundo. En la bahía se pudren los barcos abandonados, porque las tripulaciones se van a las minas.',
+      'Yo he sacado unas cuantas pepitas del río, pero se van en comida y whisky. Todos llevan revólver, vaqueros y una camisa de cuadros, y los chinos venden chicles a la puerta de la cantina.',
+      'Te mando un retrato y una bolsa de lona, que tiene cremallera para que no se pierda nada.',
+    ],
+    despedida: 'Tu marido, que no te olvida,',
+    firma: 'Fermín',
+    gazapos: {
+      'vaqueros': {
+        termino: 'vaqueros',
+        desde: 1873,
+        explicacion: 'Levi Strauss y Jacob Davis patentan los pantalones vaqueros con remaches en 1873. Llamarlos «vaqueros» en español es del siglo XX.',
+        epoca: 'En 1849 los mineros llevaban pantalones de lona o de paño.',
+      },
+      'chicles': {
+        termino: 'chicle',
+        desde: 1871,
+        explicacion: 'El chicle se vende en Estados Unidos desde 1871, hecho con la savia del chicozapote mexicano.',
+        epoca: 'En 1849 se mascaba tabaco o resina de abeto.',
+      },
+      'cremallera': {
+        termino: 'cremallera',
+        desde: 1913,
+        explicacion: 'La cremallera moderna la patenta Gideon Sundback en 1913.',
+        epoca: 'En 1849 las bolsas se cerraban con cordones o botones.',
+      },
+    },
+    trampas: {
+      'sutter': { termino: 'Sutter', desde: 1848, explicacion: 'El oro apareció en el molino de John Sutter en enero de 1848.' },
+      'revólver': { termino: 'revólver', desde: 1836, explicacion: 'Samuel Colt patentó su revólver en 1836.' },
+      'whisky': { termino: 'whisky', desde: 1750, aprox: true, explicacion: 'El whisky corría por las cantinas de la fiebre del oro.' },
+      'pepitas': { termino: 'pepita', desde: 1600, aprox: true, explicacion: 'Las pepitas de oro se sacaban del lecho de los ríos con bateas.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-21',
+    anio: 1913,
+    encabezado: 'En Nueva York, a 21 de diciembre de 1913',
+    saludo: 'Querido tío:',
+    parrafos: [
+      'Hoy el New York World trae en la sección de pasatiempos un juego nuevo de Arthur Wynne: un rombo de casillas en el que hay que escribir palabras que se cruzan. Lo llama «word-cross».',
+      'En casa nos hemos pasado la tarde con él, como con los jeroglíficos y los acertijos. Mi padre dice que es más difícil que el ajedrez.',
+      'A mí me gustan más los sudokus, y mi hermano no suelta el cubo de Rubik ni para cenar. Mamá prefiere el tetris.',
+    ],
+    despedida: 'Tu sobrino,',
+    firma: 'Guillermo',
+    gazapos: {
+      'sudokus': {
+        termino: 'sudoku',
+        desde: 1979,
+        explicacion: 'El sudoku se publica por primera vez en Estados Unidos en 1979 y triunfa en Japón en los ochenta.',
+        epoca: 'En 1913 había acertijos, jeroglíficos y problemas de ajedrez.',
+      },
+      'rubik': {
+        termino: 'cubo de Rubik',
+        desde: 1974,
+        explicacion: 'Ernő Rubik lo inventa en Budapest en 1974.',
+        epoca: 'En 1913 los rompecabezas eran de madera o de alambre.',
+      },
+      'tetris': {
+        termino: 'tetris',
+        desde: 1984,
+        explicacion: 'Alekséi Pázhitnov crea el Tetris en Moscú en 1984.',
+        epoca: 'En 1913 no había ni ordenadores ni consolas.',
+      },
+    },
+    trampas: {
+      'wynne': { termino: 'Wynne', desde: 1913, explicacion: 'Arthur Wynne publicó el primer crucigrama el 21 de diciembre de 1913 en el New York World.' },
+      'pasatiempos': { termino: 'pasatiempo', desde: 1550, aprox: true, explicacion: 'La palabra es antigua; los periódicos tenían secciones de juegos.' },
+      'jeroglíficos': { termino: 'jeroglífico', desde: 1850, aprox: true, explicacion: 'Los jeroglíficos de dibujos y letras ya eran pasatiempo de periódico en el siglo XIX.' },
+      'ajedrez': { termino: 'ajedrez', desde: 1250, aprox: true, explicacion: 'El ajedrez llegó a Europa en la Edad Media.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-22',
+    anio: 1897,
+    encabezado: 'En Madrid, a 22 de diciembre de 1897',
+    saludo: 'Querida Pilar:',
+    parrafos: [
+      'Esta mañana han cantado los niños de San Ildefonso el sorteo de Navidad. Los bombos daban vueltas y vueltas, y yo, con mi décimo en la mano, esperaba que me tocara el gordo.',
+      'No me ha tocado nada. El vecino del tercero, que juega a la bonoloto y a las quinielas, dice que ya le cambiará la suerte.',
+      'Mañana iré al cajero a sacar dinero para el turrón.',
+    ],
+    despedida: 'Tu amiga,',
+    firma: 'Engracia',
+    gazapos: {
+      'bonoloto': {
+        termino: 'bonoloto',
+        desde: 1988,
+        explicacion: 'La Bonoloto empieza en 1988.',
+        epoca: 'En 1897 solo existía la Lotería Nacional.',
+      },
+      'quinielas': {
+        termino: 'quiniela',
+        desde: 1946,
+        explicacion: 'La quiniela de fútbol, tal como la conocemos, empieza en 1946. Y en 1897 el fútbol apenas se conocía en España.',
+        epoca: 'En 1897 se apostaba a la lotería o en las corridas.',
+      },
+      'cajero': {
+        termino: 'cajero automático',
+        desde: 1967,
+        explicacion: 'El primer cajero automático se instala en Londres en 1967.',
+        epoca: 'En 1897 se iba a la ventanilla del banco, si se tenía cuenta.',
+      },
+    },
+    trampas: {
+      'ildefonso': { termino: 'San Ildefonso', desde: 1771, explicacion: 'Los niños del colegio de San Ildefonso cantan los números desde el siglo XVIII.' },
+      'décimo': { termino: 'décimo', desde: 1800, aprox: true, explicacion: 'Los billetes se vendían por décimos desde el siglo XIX.' },
+      'gordo': { termino: 'gordo', desde: 1890, aprox: true, explicacion: 'Al premio mayor ya se le llamaba «el gordo» a finales del siglo XIX.' },
+      'bombos': { termino: 'bombo', desde: 1812, explicacion: 'Los bombos de bolas se usan desde los primeros sorteos de la lotería moderna.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-23',
+    anio: 1953,
+    encabezado: 'En Katmandú, a 2 de junio de 1953',
+    saludo: 'Querido Jaime:',
+    parrafos: [
+      'El 29 de mayo, Edmund Hillary y el sherpa Tenzing Norgay llegaron a la cumbre del Everest. Hoy, día de la coronación de la reina Isabel, la noticia ha llegado a Londres.',
+      'Subieron con botellas de oxígeno, crampones y cuerdas de nailon. Llevaban chaquetas de goretex, botas con cierres de velcro, y un dron les grabó desde el aire.',
+      'Yo me conformo con haber visto el monte desde aquí.',
+    ],
+    despedida: 'Un abrazo,',
+    firma: 'Alfonso',
+    gazapos: {
+      'goretex': {
+        termino: 'Gore-Tex',
+        desde: 1969,
+        explicacion: 'El tejido Gore-Tex se inventa en 1969.',
+        epoca: 'En 1953 los alpinistas llevaban lana, plumón y lona de algodón.',
+      },
+      'velcro': {
+        termino: 'velcro',
+        desde: 1955,
+        explicacion: 'Georges de Mestral patenta el velcro en 1955, y no se populariza hasta los años sesenta.',
+        epoca: 'En 1953 las botas se ataban con cordones.',
+      },
+      'dron': {
+        termino: 'dron',
+        desde: 2010, aprox: true,
+        explicacion: 'Los drones con cámara se popularizan en la década de 2010.',
+        epoca: 'En 1953 las fotos de la cumbre las hizo Hillary con una cámara Kodak.',
+      },
+    },
+    trampas: {
+      'sherpa': { termino: 'sherpa', desde: 1921, aprox: true, explicacion: 'Los sherpas acompañaban a las expediciones británicas desde los años veinte.' },
+      'oxígeno': { termino: 'oxígeno', desde: 1922, explicacion: 'Las botellas de oxígeno se probaron en el Everest desde 1922.' },
+      'nailon': { termino: 'nailon', desde: 1938, explicacion: 'El nailon se inventó en 1938, y en 1953 ya se usaba en cuerdas.' },
+      'crampones': { termino: 'crampón', desde: 1900, aprox: true, explicacion: 'Los crampones de puntas se usaban desde principios del siglo XX.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-24',
+    anio: 1818,
+    encabezado: 'En Oberndorf, a 24 de diciembre de 1818',
+    saludo: 'Querida hermana:',
+    parrafos: [
+      'Esta noche, en la misa del gallo, hemos estrenado un villancico nuevo. El órgano de la iglesia está estropeado, así que el maestro Gruber lo ha compuesto para guitarra, sobre unos versos del padre Mohr.',
+      'Empieza «Noche de paz» y es tan sencillo que todos lo hemos cantado. Al salir, la plaza tenía un abeto lleno de bombillas, y los niños esperaban a Papá Noel.',
+      'Te mando la letra en una de esas postales de colores.',
+    ],
+    despedida: 'Feliz Navidad,',
+    firma: 'Anna',
+    gazapos: {
+      'bombillas': {
+        termino: 'bombilla',
+        desde: 1879,
+        explicacion: 'La bombilla es de 1879, y los árboles iluminados con luces eléctricas, de 1882.',
+        epoca: 'En 1818 los árboles se adornaban, si acaso, con velas, manzanas y nueces.',
+      },
+      'noel': {
+        termino: 'Papá Noel',
+        desde: 1860, aprox: true,
+        explicacion: 'El Papá Noel gordo y vestido de rojo se dibuja en Estados Unidos en la década de 1860.',
+        epoca: 'En 1818 en Austria los regalos los traía el Niño Jesús.',
+      },
+      'postales': {
+        termino: 'postal',
+        desde: 1869,
+        explicacion: 'La tarjeta postal nace en Austria en 1869, y la primera felicitación de Navidad impresa es de 1843.',
+        epoca: 'En 1818 se mandaba una carta cerrada.',
+      },
+    },
+    trampas: {
+      'guitarra': { termino: 'guitarra', desde: 1818, explicacion: 'Se estrenó con guitarra, según la tradición porque el órgano estaba averiado.' },
+      'gruber': { termino: 'Gruber', desde: 1818, explicacion: 'Franz Xaver Gruber compuso la música; Joseph Mohr había escrito la letra en 1816.' },
+      'abeto': { termino: 'abeto', desde: 1800, aprox: true, explicacion: 'El árbol de Navidad ya era costumbre en algunas casas alemanas y austriacas.' },
+      'villancico': { termino: 'villancico', desde: 1450, aprox: true, explicacion: 'La palabra es antigua; la canción, de 1818.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-25',
+    anio: 1914,
+    encabezado: 'En Flandes, a 25 de diciembre de 1914',
+    saludo: 'Querida madre:',
+    parrafos: [
+      'Anoche, desde las trincheras alemanas, empezaron a cantar villancicos, y los nuestros contestaron. Esta mañana hemos salido a la tierra de nadie, entre las alambradas, y nos hemos dado la mano.',
+      'Hemos cambiado tabaco por salchichas, y hasta hubo un partido de fútbol. Un alemán me dio un tarro de Nescafé y yo le regalé un paquete de tiritas.',
+      'Mañana volveremos a los fusiles. Dicen que el año que viene llegarán los tanques y acabará todo.',
+    ],
+    despedida: 'Tu hijo, que te quiere,',
+    firma: 'William',
+    gazapos: {
+      'nescafé': {
+        termino: 'Nescafé',
+        desde: 1938,
+        explicacion: 'Nestlé lanza el café soluble Nescafé en 1938.',
+        epoca: 'En 1914 los soldados cambiaban café en grano, tabaco o chocolate.',
+      },
+      'tiritas': {
+        termino: 'tirita',
+        desde: 1920,
+        explicacion: 'Las tiras adhesivas con gasa se inventan en Estados Unidos en 1920; «Tiritas» es una marca española posterior.',
+        epoca: 'En 1914 las heridas se tapaban con vendas.',
+      },
+      'tanques': {
+        termino: 'tanque',
+        desde: 1916,
+        explicacion: 'Los primeros carros de combate entran en batalla en el Somme en 1916, y no acabaron la guerra.',
+        epoca: 'En 1914 nadie había visto un tanque.',
+      },
+    },
+    trampas: {
+      'trincheras': { termino: 'trinchera', desde: 1600, aprox: true, explicacion: 'En diciembre de 1914 el frente occidental ya era una línea de trincheras.' },
+      'alambradas': { termino: 'alambrada', desde: 1890, aprox: true, explicacion: 'El alambre de espino separaba ya las trincheras.' },
+      'fútbol': { termino: 'fútbol', desde: 1863, explicacion: 'Las crónicas de la tregua de Navidad hablan de algún partido improvisado.' },
+      'villancicos': { termino: 'villancico', desde: 1450, aprox: true, explicacion: 'La tregua empezó con los villancicos de una trinchera a otra.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-26',
+    anio: 1734,
+    encabezado: 'En Madrid, a 26 de diciembre de 1734',
+    saludo: 'Querido Ignacio:',
+    parrafos: [
+      'En la Nochebuena ardió el Alcázar. El fuego empezó de madrugada y duró cuatro días. Los criados sacaban los cuadros por las ventanas, y así se salvaron las Meninas de Velázquez.',
+      'Los bomberos no daban abasto con los extintores. Cuentan que se han perdido más de quinientos cuadros, y que los mejores irán al Prado.',
+      'Lo trae la Gaceta. Dicen que el rey mandará hacer un palacio nuevo, y que lo pintará un tal Goya.',
+    ],
+    despedida: 'Tuyo afectísimo,',
+    firma: 'Baltasar',
+    gazapos: {
+      'extintores': {
+        termino: 'extintor',
+        desde: 1866,
+        explicacion: 'El extintor portátil de agua y ácido se patenta en Francia en 1866.',
+        epoca: 'En 1734 el fuego se apagaba con cubos de agua, de mano en mano.',
+      },
+      'prado': {
+        termino: 'Museo del Prado',
+        desde: 1819,
+        explicacion: 'El Museo del Prado abre sus puertas en 1819.',
+        epoca: 'En 1734 los cuadros del rey iban a otros palacios, como el del Buen Retiro.',
+      },
+      'goya': {
+        termino: 'Goya',
+        desde: 1746,
+        explicacion: 'Francisco de Goya nace en 1746, doce años después del incendio.',
+        epoca: 'El Palacio Real lo decoraron Tiepolo, Mengs y otros pintores.',
+      },
+    },
+    trampas: {
+      'meninas': { termino: 'Meninas', desde: 1656, explicacion: 'Las Meninas se salvaron del incendio del Alcázar.' },
+      'gaceta': { termino: 'Gaceta', desde: 1661, explicacion: 'La Gaceta de Madrid se publicaba desde 1661.' },
+      'bomberos': { termino: 'bombero', desde: 1700, aprox: true, explicacion: 'Aunque no como cuerpo profesional, ya se llamaba bomberos a quienes manejaban las bombas de agua.' },
+      'nochebuena': { termino: 'Nochebuena', desde: 1734, explicacion: 'El incendio empezó la noche del 24 de diciembre de 1734.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-27',
+    anio: 1726,
+    encabezado: 'En Madrid, a 20 de noviembre de 1726',
+    saludo: 'Mi querido Fernando:',
+    parrafos: [
+      'Por fin ha salido el primer tomo del diccionario de la Real Academia Española, que lleva trece años trabajando. Lo llaman de Autoridades, porque cada palabra va con ejemplos de los buenos escritores.',
+      'Te lo mando con el ordinario. Si encuentras alguna errata, tápala con típex, o búscala en la Wikipedia, que ya la habrán corregido.',
+      'Escríbeme con tu mejor pluma y no me pongas emoticonos.',
+    ],
+    despedida: 'Tu amigo,',
+    firma: 'Blas',
+    gazapos: {
+      'típex': {
+        termino: 'Tipp-Ex',
+        desde: 1959,
+        explicacion: 'El líquido corrector Tipp-Ex nace en Alemania en 1959.',
+        epoca: 'En 1726 la errata se tachaba o se raspaba con una cuchilla.',
+      },
+      'wikipedia': {
+        termino: 'Wikipedia',
+        desde: 2001,
+        explicacion: 'La Wikipedia se crea en 2001.',
+        epoca: 'En 1726 se consultaban los libros de la biblioteca.',
+      },
+      'emoticonos': {
+        termino: 'emoticono',
+        desde: 1982,
+        explicacion: 'El primer emoticono se escribe en un foro de la Universidad Carnegie Mellon en 1982.',
+        epoca: 'En 1726 las cartas solo llevaban palabras y, como mucho, un dibujo al margen.',
+      },
+    },
+    trampas: {
+      'academia': { termino: 'Academia', desde: 1713, explicacion: 'La Real Academia Española se funda en 1713.' },
+      'autoridades': { termino: 'Diccionario de autoridades', desde: 1726, explicacion: 'El primer tomo sale en 1726 y el último, en 1739.' },
+      'errata': { termino: 'errata', desde: 1600, aprox: true, explicacion: 'Los libros llevaban fe de erratas desde el siglo XVI.' },
+      'ordinario': { termino: 'ordinario', desde: 1600, aprox: true, explicacion: 'El ordinario era el correo regular que llevaba cartas y paquetes.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-28',
+    anio: 1895,
+    encabezado: 'En París, a 28 de diciembre de 1895',
+    saludo: 'Querido Ricardo:',
+    parrafos: [
+      'Esta noche, en el Salón Indio del Gran Café, los hermanos Lumière han enseñado su cinematógrafo. En una sábana blanca se veían obreros saliendo de una fábrica, un niño desayunando y un jardinero al que mojaban con su propia manguera.',
+      'Nos dieron palomitas a la entrada. Dicen que pronto habrá películas en tecnicolor, y que a los mejores les darán un óscar.',
+      'Yo volví a casa en bicicleta, pensando en lo que había visto.',
+    ],
+    despedida: 'Tu amigo,',
+    firma: 'Luis',
+    gazapos: {
+      'palomitas': {
+        termino: 'palomitas',
+        desde: 1912, aprox: true,
+        explicacion: 'Las palomitas entran en los cines de Estados Unidos en las primeras décadas del siglo XX y se generalizan en los años treinta.',
+        epoca: 'En 1895 en el Gran Café se servía café y licores.',
+      },
+      'tecnicolor': {
+        termino: 'tecnicolor',
+        desde: 1916,
+        explicacion: 'La empresa Technicolor se funda en 1916, y su color de tres tiras llega en 1932.',
+        epoca: 'En 1895 las imágenes eran en blanco y negro, y a veces se coloreaban a mano.',
+      },
+      'óscar': {
+        termino: 'Óscar',
+        desde: 1929,
+        explicacion: 'Los premios de la Academia de Hollywood se entregan por primera vez en 1929.',
+        epoca: 'En 1895 no había premios de cine, porque apenas había cine.',
+      },
+    },
+    trampas: {
+      'cinematógrafo': { termino: 'cinematógrafo', desde: 1895, explicacion: 'Los Lumière patentaron el cinematógrafo en febrero de 1895.' },
+      'manguera': { termino: 'manguera', desde: 1700, aprox: true, explicacion: '«El regador regado», con su manguera, estaba en el programa de aquella primera noche.' },
+      'lumière': { termino: 'Lumière', desde: 1895, explicacion: 'La primera sesión pública de pago fue el 28 de diciembre de 1895.' },
+      'bicicleta': { termino: 'bicicleta', desde: 1885, aprox: true, explicacion: 'En 1895 París estaba lleno de bicicletas.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-29',
+    anio: 1978,
+    encabezado: 'En Madrid, a 29 de diciembre de 1978',
+    saludo: 'Querida Merche:',
+    parrafos: [
+      'Hoy ha salido en el Boletín Oficial la Constitución, que aprobamos en referéndum el día 6. Desde hoy está en vigor. Lo vimos todo en la televisión en color de los vecinos.',
+      'Papá dice que lo celebraremos en Sevilla, y que iremos en el AVE. Mamá quiere comprar muebles en Ikea para el piso nuevo.',
+      'Mi hermano lo ha grabado todo en un DVD, y yo lo he oído en el transistor mientras iba en el seiscientos.',
+    ],
+    despedida: 'Un beso,',
+    firma: 'Conchi',
+    gazapos: {
+      'ave': {
+        termino: 'AVE',
+        desde: 1992,
+        explicacion: 'El tren de alta velocidad Madrid-Sevilla empieza a funcionar en 1992.',
+        epoca: 'En 1978 se iba a Sevilla en el Talgo o en el expreso.',
+      },
+      'ikea': {
+        termino: 'Ikea',
+        desde: 1996,
+        explicacion: 'La primera tienda de Ikea en España abre en 1996.',
+        epoca: 'En 1978 los muebles se compraban en la tienda del barrio.',
+      },
+      'dvd': {
+        termino: 'DVD',
+        desde: 1995,
+        explicacion: 'El DVD se presenta en 1995.',
+        epoca: 'En 1978 se grababa en casetes, y el vídeo doméstico apenas empezaba.',
+      },
+    },
+    trampas: {
+      'referéndum': { termino: 'referéndum', desde: 1978, explicacion: 'El referéndum de la Constitución fue el 6 de diciembre de 1978.' },
+      'color': { termino: 'televisión en color', desde: 1972, aprox: true, explicacion: 'TVE emitía en color desde los años setenta.' },
+      'transistor': { termino: 'transistor', desde: 1955, aprox: true, explicacion: 'Las radios de transistores eran muy populares desde los sesenta.' },
+      'seiscientos': { termino: 'seiscientos', desde: 1957, explicacion: 'El SEAT 600 se fabricó de 1957 a 1973.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-30',
+    anio: 1492,
+    encabezado: 'En Santa Fe, a 3 de enero de 1492',
+    saludo: 'Mi señor padre:',
+    parrafos: [
+      'Ayer entraron los Reyes en la Alhambra, y Boabdil les entregó las llaves de Granada. Se acabó la guerra, y todos los caballeros celebran la victoria con banquetes.',
+      'En la mesa del duque había pavo, cordero y unas patatas asadas que nunca había probado, y para acompañar, tortas de maíz. Un genovés llamado Colón sigue pidiendo a la reina barcos y carabelas.',
+      'Le mando una copia de la noticia, que ya se ha llevado a la imprenta.',
+    ],
+    despedida: 'Su hijo,',
+    firma: 'Íñigo',
+    gazapos: {
+      'patatas': {
+        termino: 'patata',
+        desde: 1570, aprox: true,
+        explicacion: 'La patata llega a Europa desde los Andes a mediados del siglo XVI.',
+        epoca: 'En 1492 se comían nabos, castañas, legumbres y pan.',
+      },
+      'maíz': {
+        termino: 'maíz',
+        desde: 1500,
+        explicacion: 'Colón conoce el maíz en Cuba en 1492, y la palabra, taína, entra en el español con su regreso.',
+        epoca: 'En 1492 las tortas se hacían de trigo o de cebada.',
+      },
+      'pavo': {
+        termino: 'pavo',
+        desde: 1520, aprox: true,
+        explicacion: 'El pavo que se come es americano y llega a España tras la conquista de México. Antes, «pavo» era el pavo real.',
+        epoca: 'En 1492 en los banquetes se servían capones, perdices y, para lucirse, pavos reales.',
+      },
+    },
+    trampas: {
+      'boabdil': { termino: 'Boabdil', desde: 1482, explicacion: 'Boabdil, el último rey nazarí, entregó Granada el 2 de enero de 1492.' },
+      'colón': { termino: 'Colón', desde: 1486, explicacion: 'Colón llevaba años pidiendo apoyo a los Reyes; lo consiguió en abril de 1492.' },
+      'carabelas': { termino: 'carabela', desde: 1450, aprox: true, explicacion: 'La carabela era el barco de exploración del siglo XV.' },
+      'imprenta': { termino: 'imprenta', desde: 1472, explicacion: 'En España se imprimía desde 1472.' },
+    },
+  },
+
+  {
+    fecha: '2026-12-31',
+    anio: 1909,
+    encabezado: 'En Madrid, a 31 de diciembre de 1909',
+    saludo: 'Querido Luis:',
+    parrafos: [
+      'Este año ha sobrado tanta uva en Alicante que los cosecheros la venden para tomarla a las doce. Esta noche iremos a la Puerta del Sol a oír las campanadas del reloj y comer las doce uvas.',
+      'Vamos en el tranvía, con confeti y serpentinas. Después, cava para brindar, y a casa a oír la radio y el gramófono.',
+      'Cuidado al cruzar, que en la plaza han puesto semáforos. Feliz año nuevo.',
+    ],
+    despedida: 'Tu hermano,',
+    firma: 'Pepe',
+    gazapos: {
+      'cava': {
+        termino: 'cava',
+        desde: 1970, aprox: true,
+        explicacion: 'El espumoso catalán se llamaba «champaña» o «champán»; el nombre de cava se adopta en los años setenta.',
+        epoca: 'En 1909 se brindaba con champaña, sidra o vino dulce.',
+      },
+      'radio': {
+        termino: 'radio',
+        desde: 1924,
+        explicacion: 'Las emisiones de radio para el público empiezan en España en 1924.',
+        epoca: 'En 1909 la música en casa salía del piano o del gramófono.',
+      },
+      'semáforos': {
+        termino: 'semáforo',
+        desde: 1926,
+        explicacion: 'El primer semáforo eléctrico de Madrid se pone en 1926.',
+        epoca: 'En 1909 el tráfico lo dirigían los guardias.',
+      },
+    },
+    trampas: {
+      'uvas': { termino: 'uvas', desde: 1909, explicacion: 'La costumbre se generaliza en 1909, con la sobreproducción de uva de Alicante.' },
+      'reloj': { termino: 'reloj de la Puerta del Sol', desde: 1866, explicacion: 'El reloj de la Casa de Correos se inauguró en 1866.' },
+      'tranvía': { termino: 'tranvía', desde: 1871, explicacion: 'Madrid tenía tranvías desde 1871, y eléctricos desde 1898.' },
+      'gramófono': { termino: 'gramófono', desde: 1887, explicacion: 'Emile Berliner patentó el gramófono en 1887.' },
+      'confeti': { termino: 'confeti', desde: 1900, aprox: true, explicacion: 'El confeti de papel se usaba en los carnavales desde finales del siglo XIX.' },
+    },
+  },
 ];
