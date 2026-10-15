@@ -7,7 +7,7 @@ Cada día, un texto breve de época con tres palabras que entonces nadie podía 
 ## Archivos
 
 - `index.html`, `styles.css`, `app.js`: el juego, sin dependencias ni compilación.
-- `retos.js`: un reto por día (fecha de publicación, año, encabezado, texto, gazapos y trampas). Para añadir días, copia un bloque.
+- `retos.js`: un reto por día (fecha de publicación, año, encabezado, texto, gazapos y trampas). Para añadir días, copia un bloque y mueve `GAZAPO_FIN_DEL_CICLO` al último de ellos. Hoy es el 31 de diciembre de 2026: desde el 1 de enero de 2027, los retos vuelven a empezar por el primero (el del 8 de octubre).
 - `volver-almanaque.js`: copia de `Almanaque/para-los-juegos/`.
 - `manifest.json`, `sw.js`: PWA para jugar sin conexión. Si cambias la lista de archivos, sube `VERSION` en `sw.js`.
 

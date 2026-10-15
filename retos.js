@@ -11,7 +11,13 @@
        trampas, el año en que ya se documentaba. Sale en la línea del tiempo del final.
        Si solo se conoce el siglo, un año representativo y aprox: true (se muestra «s. XVIII»).
        Las fechas dudosas están apuntadas en REVISAR-FECHAS.md.
-   Si un día no tiene reto, se juega el último publicado. */
+   Si un día no tiene reto, se juega el último publicado.
+
+   GAZAPO_FIN_DEL_CICLO: último día del ciclo. Desde el día siguiente, los retos vuelven a
+   empezar por el primero (el del 8 de octubre de 2026). Al añadir días, mueve esta fecha
+   al último de ellos. */
+
+window.GAZAPO_FIN_DEL_CICLO = '2026-12-31';
 
 window.GAZAPO_RETOS = [
   {

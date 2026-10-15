@@ -50,24 +50,51 @@
 
   /* ---------- Reto del día ---------- */
 
-  // El de hoy; si no hay, el último publicado; si aún no ha empezado, el primero.
-  function elegirReto(retos) {
-    var hoy = hoyLocal();
+  // Días entre dos fechas AAAA-MM-DD (b − a).
+  function diasEntre(a, b) {
+    var x = partesFecha(a);
+    var y = partesFecha(b);
+    return Math.round((Date.UTC(y.anio, y.mes, y.dia) - Date.UTC(x.anio, x.mes, x.dia)) / 864e5);
+  }
+
+  function sumarDias(iso, n) {
+    var f = partesFecha(iso);
+    var d = new Date(Date.UTC(f.anio, f.mes, f.dia + n));
+    return d.getUTCFullYear() + '-' + String(d.getUTCMonth() + 1).padStart(2, '0') + '-' + String(d.getUTCDate()).padStart(2, '0');
+  }
+
+  // El día que se juega: hoy, o el de ?dia=AAAA-MM-DD.
+  function diaDeJuego() {
     try {
       var pedido = new URL(window.location.href).searchParams.get('dia');
-      if (pedido && /^\d{4}-\d{2}-\d{2}$/.test(pedido)) hoy = pedido;
+      if (pedido && /^\d{4}-\d{2}-\d{2}$/.test(pedido)) return pedido;
     } catch (e) { /* navegador antiguo */ }
+    return hoyLocal();
+  }
 
+  // El reto del día `dia`: el de su fecha; si no hay, el último publicado; si aún no ha
+  // empezado, el primero. Pasado GAZAPO_FIN_DEL_CICLO, el del día equivalente del primer
+  // ciclo (el día siguiente al fin vuelve al primer reto).
+  function elegirReto(retos, dia) {
     var ordenados = retos.slice().sort(function (a, b) { return a.fecha < b.fecha ? -1 : 1; });
+    var primero = ordenados[0].fecha;
+    var fin = window.GAZAPO_FIN_DEL_CICLO || ordenados[ordenados.length - 1].fecha;
+    if (dia > fin) {
+      var largo = diasEntre(primero, fin) + 1;
+      dia = sumarDias(primero, diasEntre(primero, dia) % largo);
+    }
     var elegido = ordenados[0];
-    ordenados.forEach(function (r) { if (r.fecha <= hoy) elegido = r; });
+    ordenados.forEach(function (r) { if (r.fecha <= dia) elegido = r; });
     return elegido;
   }
 
   /* ---------- Estado ---------- */
 
-  var reto = elegirReto(window.GAZAPO_RETOS || []);
-  var claveGuardado = PREFIJO_PARTIDA + reto.fecha;
+  var dia = diaDeJuego();
+  var reto = elegirReto(window.GAZAPO_RETOS || [], dia);
+  // La partida se guarda con el día jugado, no con la fecha del reto: al repetirse el ciclo,
+  // la misma carta vuelve a salir como partida nueva.
+  var claveGuardado = PREFIJO_PARTIDA + dia;
 
   // intentos: [{ clave, pos, tipo: 'gazapo' | 'trampa' | 'fallo' }]
   // pos: la palabra concreta que se marcó (su orden en la carta, del saludo a la firma).
@@ -630,7 +657,7 @@
 
   function textoCompartir() {
     var cuadros = secuencia().map(function (t) { return t === 'lupa' ? EMOJI_LUPA : EMOJI[t]; }).join('');
-    return 'Gazapo · ' + fechaCorta(reto.fecha) + '\n' + cuadros + '\n' + resultado() + '\n' + URL_JUEGO;
+    return 'Gazapo · ' + fechaCorta(dia) + '\n' + cuadros + '\n' + resultado() + '\n' + URL_JUEGO;
   }
 
   // En el móvil abre el menú de compartir del sistema (WhatsApp, X, Bluesky…).
